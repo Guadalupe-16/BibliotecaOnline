@@ -46,57 +46,5 @@ npm install
 
 cp .env.example .env
 
-Edita el archivo `.env` y configura tu base de datos:
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=biblioteca_online
-DB_USERNAME=root
-DB_PASSWORD=
-
-### 5. Generar la clave de la aplicación
-
-php artisan key:generate
-
-### 6. Crear la base de datos
-
-Crea una base de datos llamada `biblioteca_online` en MySQL con cotejamiento `utf8mb4_unicode_ci`.
-
-### 7. Ejecutar las migraciones
-
-php artisan migrate
-
-### 8. Instalar el hook de conventional commits
-
-cp .githooks/prepare-commit-msg .git/hooks/prepare-commit-msg
-chmod +x .git/hooks/prepare-commit-msg
-
-### 9. Ejecutar el servidor de desarrollo
-
-En dos terminales simultáneas:
-
-Terminal 1:
-php artisan serve
-
-Terminal 2:
-npm run dev
-
-### 10. Abrir en el navegador
-
-http://localhost:8000
-
----
-
-## Flujo de Ramas
-
-- `main` — rama de producción/deploy
-- `develop` — rama principal de desarrollo
-- `feat/<issue>-<scope>-<descripcion>` — nuevas funcionalidades
-- `fix/<issue>-<scope>-<descripcion>` — corrección de errores
-
----
-
-## Licencia
-
-MIT License — Ver archivo LICENSE para más detalles.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# setup
