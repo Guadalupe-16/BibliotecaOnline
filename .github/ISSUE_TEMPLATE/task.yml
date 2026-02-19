@@ -1,0 +1,31 @@
+name: "📋 Tarea"
+description: "Tarea de desarrollo o mantenimiento"
+title: "chore: "
+labels: ["task"]
+body:
+  - type: input
+    id: titulo
+    attributes:
+      label: "Nombre de la tarea"
+      placeholder: "Ej: Configurar migraciones de base de datos"
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: "Descripción"
+      placeholder: "Describe lo que se debe hacer..."
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: "Tipo de tarea"
+      options:
+        - Configuración
+        - Documentación
+        - Refactorización
+        - Testing
+        - Deployment
+    validations:
+      required: true
