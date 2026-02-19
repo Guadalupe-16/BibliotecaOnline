@@ -1,0 +1,36 @@
+name: "✨ Nueva Funcionalidad"
+description: "Proponer una nueva funcionalidad para BibliotecaOnline"
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: titulo
+    attributes:
+      label: "Nombre de la funcionalidad"
+      placeholder: "Ej: Sistema de favoritos"
+    validations:
+      required: true
+  - type: textarea
+    id: descripcion
+    attributes:
+      label: "Descripción"
+      placeholder: "Describe la funcionalidad que propones..."
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: "Criterios de aceptación"
+      placeholder: "- El usuario puede agregar un libro a favoritos"
+    validations:
+      required: true
+  - type: dropdown
+    id: rol
+    attributes:
+      label: "Rol que la usa"
+      options:
+        - Usuario normal
+        - Administrador
+        - Ambos
+    validations:
+      required: true
