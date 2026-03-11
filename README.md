@@ -46,5 +46,10 @@ npm install
 
 cp .env.example .env
 
+### 5. Crear la carpeta .git/hooks
+
+touch .git/hooks/prepare-commit-msg **PREGUNTAR POR CODIGO**
+chmod +x .git/hooks/prepare-commit-msg
+
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # setup
