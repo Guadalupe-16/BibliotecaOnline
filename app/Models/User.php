@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol',
     ];
 
     /**
@@ -57,4 +58,15 @@ class User extends Authenticatable
     {
         return $this->favoritos()->where('libro_id', $libro_id)->exists();
     }
+
+    public function esAdmin(): bool
+{
+    return $this->rol === 'admin';
+}
+
+public function esUsuario(): bool
+{
+    return $this->rol === 'usuario';
+}
+
 }
