@@ -16,5 +16,6 @@
         {{ $slot }}
     </main>
 
+    <livewire:chat-soporte />
 </body>
 </html>
