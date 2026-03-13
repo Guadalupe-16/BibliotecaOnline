@@ -14,5 +14,6 @@
         <h1 class="text-2xl font-bold text-white">Bienvenido</h1>
     </main>
 
+    <livewire:chat-soporte />
 </body>
 </html>
