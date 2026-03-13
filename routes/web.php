@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\LibroController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
         'resultados' => null,
-        'termino'    => '',
+        'termino' => '',
         'categorias' => \App\Models\Categoria::all(),
     ]);
 })->name('open-library.index');
@@ -59,3 +60,10 @@ Route::middleware(['auth'])->group(function () {
         return 'Dashboard de usuario';
     })->name('dashboard');
 });
+
+Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
+
+Route::get('/buscar', function () {
+    return view('libros.buscador');
+})->name('buscar');
+
