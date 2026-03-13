@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OpenLibraryController;
+
+Route::get('/open-library/buscar', [OpenLibraryController::class, 'buscar'])
+    ->name('open-library.buscar');
+
+Route::post('/open-library/importar', [OpenLibraryController::class, 'importar'])
+    ->name('open-library.importar');
 
 Route::get('/', function () {
     return view('welcome');
