@@ -41,3 +41,7 @@ Route::get('/register', function () {
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->name('password.request');
+
+Route::post('/forgot-password', function () {
+    return back()->with('status', 'Te enviamos el enlace a tu correo.');
+})->name('password.email');
