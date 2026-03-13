@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'rol',
     ];
 
     /**
@@ -45,4 +46,27 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Relación: un usuario tiene muchos favoritos
+    public function favoritos()
+    {
+        return $this->hasMany(Favorito::class);
+    }
+
+    // Verifica si un libro es favorito del usuario
+    public function esFavorito($libro_id)
+    {
+        return $this->favoritos()->where('libro_id', $libro_id)->exists();
+    }
+
+    public function esAdmin(): bool
+{
+    return $this->rol === 'admin';
+}
+
+public function esUsuario(): bool
+{
+    return $this->rol === 'usuario';
+}
+
 }
