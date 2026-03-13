@@ -6,6 +6,7 @@ use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -44,6 +45,10 @@ Route::get('/forgot-password', function () {
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 
+Route::get('/logs', function () {
+    return view('logs.index');
+})->name('logs');
+
 Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
 })->name('password.email');
@@ -80,3 +85,9 @@ Route::get('/robots.txt', function () {
     return response($content)->header('Content-Type', 'text/plain');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+    Route::get('/usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+    Route::put('/usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update');
+    Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+});
