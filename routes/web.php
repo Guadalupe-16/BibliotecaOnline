@@ -48,3 +48,7 @@ Route::post('/forgot-password', function () {
 })->name('password.email');
 
 Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
