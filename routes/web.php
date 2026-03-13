@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
 
@@ -22,6 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos');
+    Route::post('/favoritos/{libro}/toggle', [FavoritoController::class, 'toggle'])->name('favoritos.toggle');
+});
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
@@ -35,3 +41,8 @@ Route::get('/forgot-password', function () {
 })->name('password.request');
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
+
+Route::post('/forgot-password', function () {
+    return back()->with('status', 'Te enviamos el enlace a tu correo.');
+})->name('password.email');
+})->name('password.request');
