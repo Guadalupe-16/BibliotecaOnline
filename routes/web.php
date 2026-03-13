@@ -34,4 +34,3 @@ Route::get('/forgot-password', function () {
 Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
 })->name('password.email');
-})->name('password.request');
