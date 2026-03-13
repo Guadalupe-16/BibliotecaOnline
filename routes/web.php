@@ -5,6 +5,7 @@ use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -67,3 +68,9 @@ Route::get('/buscar', function () {
     return view('libros.buscador');
 })->name('buscar');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+    Route::get('/usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+    Route::put('/usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update');
+    Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+});
