@@ -30,6 +30,7 @@ Route::get('/login-test', function () {
     auth()->login($usuario);
     return redirect('/favoritos');
 })->name('login-test');
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
