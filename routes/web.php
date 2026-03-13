@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\LibroController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -45,4 +46,5 @@ Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
 })->name('password.email');
-})->name('password.request');
+
+Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
