@@ -3,6 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
+use App\Http\Controllers\CatalogoController;
+
+Route::get('/open-library', function () {
+    return view('libros.buscar', [
+        'resultados' => null,
+        'termino'    => '',
+        'categorias' => \App\Models\Categoria::all(),
+    ]);
+})->name('open-library.index');
 
 Route::get('/open-library/buscar', [OpenLibraryController::class, 'buscar'])
     ->name('open-library.buscar');
@@ -30,6 +39,8 @@ Route::get('/register', function () {
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
 })->name('password.request');
+
+Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 
 Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
