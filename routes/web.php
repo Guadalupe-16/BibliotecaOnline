@@ -5,6 +5,7 @@ use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\OpenLibraryController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UsuarioController;
 
 Route::get('/open-library', function () {
@@ -71,6 +72,18 @@ Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.sh
 Route::get('/buscar', function () {
     return view('libros.buscador');
 })->name('buscar');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+Route::get('/robots.txt', function () {
+    $content = "User-agent: *\n";
+    $content .= "Disallow: /admin\n";
+    $content .= "Disallow: /dashboard\n";
+    $content .= "Disallow: /logs\n\n";
+    $content .= "Sitemap: " . url('/sitemap.xml') . "\n";
+
+    return response($content)->header('Content-Type', 'text/plain');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
