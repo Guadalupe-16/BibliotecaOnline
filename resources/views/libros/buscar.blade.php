@@ -1,10 +1,10 @@
-<x-app-layout>
+@extends('layouts.app')
+@section('content')
     <div class="max-w-5xl mx-auto px-4 py-8">
 
         {{-- Formulario de búsqueda --}}
         <form method="GET" action="{{ route('open-library.buscar') }}" class="flex gap-3 mb-8">
-            <input type="text" name="termino" value="{{ $termino ?? '' }}"
-                placeholder="Buscar libro por título o autor..."
+            <input type="text" name="termino" value="{{ $termino ?? '' }}" placeholder="Buscar libro por título o autor..."
                 class="flex-1 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required>
             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
@@ -73,4 +73,4 @@
             @endif
         @endisset
     </div>
-</x-app-layout>
+@endsection
