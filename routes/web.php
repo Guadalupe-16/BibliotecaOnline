@@ -42,7 +42,10 @@ Route::get('/forgot-password', function () {
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 
+Route::get('/logs', function () {
+    return view('logs.index');
+})->name('logs');
+
 Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
 })->name('password.email');
-})->name('password.request');
