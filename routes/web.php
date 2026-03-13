@@ -9,7 +9,7 @@ use App\Http\Controllers\LibroController;
 Route::get('/open-library', function () {
     return view('libros.buscar', [
         'resultados' => null,
-        'termino'    => '',
+        'termino' => '',
         'categorias' => \App\Models\Categoria::all(),
     ]);
 })->name('open-library.index');
@@ -48,3 +48,7 @@ Route::post('/forgot-password', function () {
 })->name('password.email');
 
 Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
+
+Route::get('/buscar', function () {
+    return view('libros.buscador');
+})->name('buscar');
