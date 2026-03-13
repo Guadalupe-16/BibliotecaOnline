@@ -9,7 +9,7 @@ use App\Http\Controllers\LibroController;
 Route::get('/open-library', function () {
     return view('libros.buscar', [
         'resultados' => null,
-        'termino'    => '',
+        'termino' => '',
         'categorias' => \App\Models\Categoria::all(),
     ]);
 })->name('open-library.index');
@@ -47,8 +47,23 @@ Route::post('/forgot-password', function () {
     return back()->with('status', 'Te enviamos el enlace a tu correo.');
 })->name('password.email');
 
+// Rutas solo para admin
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', function () {
+        return 'Panel de administrador';
+    })->name('admin.panel');
+});
+
+// Rutas solo para usuarios autenticados
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return 'Dashboard de usuario';
+    })->name('dashboard');
+});
+
 Route::get('/libros/{libro}', [LibroController::class, 'show'])->name('libros.show');
 
-Route::get('/contacto', function () {
-    return view('contacto');
-})->name('contacto');
+Route::get('/buscar', function () {
+    return view('libros.buscador');
+})->name('buscar');
+
