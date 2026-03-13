@@ -1,4 +1,4 @@
-<nav x-data="{ menuAbierto: false, categoriasAbiertas: true }">
+<nav x-data="{ menuAbierto: false, categoriasAbiertas: false }">
 
     {{-- ===== SIDEBAR ESCRITORIO ===== --}}
     <aside class="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-full bg-[#0f1117] border-r border-white/5 px-4 py-6 gap-6 z-40">
@@ -59,9 +59,9 @@
         </div>
 
         {{-- Sección Categorías con dropdown animado --}}
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1" x-on:mouseleave="categoriasAbiertas = false">
             <button
-                x-on:click="categoriasAbiertas = !categoriasAbiertas"
+                x-on:mouseenter="categoriasAbiertas = true"
                 class="flex items-center justify-between text-[10px] font-semibold tracking-widest text-white/30 uppercase px-3 mb-1 hover:text-white/50 transition-colors duration-200 w-full"
             >
                 <span>Categorías</span>
