@@ -27,6 +27,10 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/favoritos', [FavoritoController::class, 'index'])->name('favoritos');
     Route::post('/favoritos/{libro}/toggle', [FavoritoController::class, 'toggle'])->name('favoritos.toggle');
+    Route::post('/logout', function () {
+        auth()->logout();
+        return redirect('/');
+    })->name('logout');
 });
 
 Route::get('/login', function () {
