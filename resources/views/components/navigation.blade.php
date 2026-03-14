@@ -27,7 +27,7 @@
                 Catálogo
             </a>
 
-            <a href="{{ route('open-library.index') }}"
+            <a href="{{ route('buscar') }}"
                 x-on:mouseenter="$el.classList.add('bg-white/5', 'text-white')"
                 x-on:mouseleave="$el.classList.remove('bg-white/5', 'text-white')"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
@@ -35,6 +35,16 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
                 Buscar
+            </a>
+
+            <a href="{{ route('open-library.index') }}"
+                x-on:mouseenter="$el.classList.add('bg-white/5', 'text-white')"
+                x-on:mouseleave="$el.classList.remove('bg-white/5', 'text-white')"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                </svg>
+                Importar libros
             </a>
 
             <a href="#"
@@ -177,9 +187,13 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                 Catálogo
             </a>
-            <a href="{{ route('open-library.index') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
+            <a href="{{ route('buscar') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 Buscar
+            </a>
+            <a href="{{ route('open-library.index') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Importar libros
             </a>
             <a href="#" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
