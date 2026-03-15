@@ -7,6 +7,7 @@ use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\RecuperacionContrasenaController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -49,9 +50,16 @@ Route::get('/logs', function () {
     return view('logs.index');
 })->name('logs');
 
-Route::post('/forgot-password', function () {
-    return back()->with('status', 'Te enviamos el enlace a tu correo.');
-})->name('password.email');
+Route::post('/forgot-password', [RecuperacionContrasenaController::class, 'enviarEnlace'])
+    ->name('password.email');
+
+Route::get('/reset-password/{token}', [RecuperacionContrasenaController::class, 'mostrarFormularioReset'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [RecuperacionContrasenaController::class, 'resetear'])
+    ->middleware('guest')
+    ->name('password.update');
 
 // Rutas solo para admin
 Route::middleware(['auth', 'role:admin'])->group(function () {
