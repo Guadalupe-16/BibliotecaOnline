@@ -128,3 +128,10 @@ Route::get('/login-super', function () {
     auth()->login($usuario);
     return redirect('/superadmin');
 });
+
+use App\Http\Controllers\PerfilController;
+
+Route::middleware('auth')->group(function () {
+    Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
+    Route::post('/perfil', [PerfilController::class, 'actualizar'])->name('perfil.actualizar');
+});
