@@ -8,6 +8,9 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RecuperacionContrasenaController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VerificacionEmailController;
+use App\Http\Controllers\RbacController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -71,11 +74,14 @@ Route::post('/reset-password', [RecuperacionContrasenaController::class, 'resete
     ->middleware('guest')
     ->name('password.update');
 
-// Rutas solo para admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+// Rutas solo para admin y superadmin
+Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
     Route::get('/admin', function () {
         return 'Panel de administrador';
     })->name('admin.panel');
+
+    Route::get('/admin/roles', [RbacController::class, 'index'])->name('admin.rbac.index');
+    Route::put('/admin/roles/{id}', [RbacController::class, 'actualizar'])->name('admin.rbac.actualizar');
 });
 
 // Rutas solo para usuarios autenticados
