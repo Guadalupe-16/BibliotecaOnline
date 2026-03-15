@@ -50,6 +50,75 @@ class OpenLibraryServiceTest extends TestCase
         $this->assertEmpty($resultados);
     }
 
+    public function test_buscar_por_isbn_retorna_datos_del_libro(): void
+    {
+        Http::fake([
+            'openlibrary.org/api/books*' => Http::response([
+                'ISBN:9780060883287' => [
+                    'details' => [
+                        'title'        => 'Cien años de soledad',
+                        'authors'      => [['name' => 'Gabriel García Márquez']],
+                        'publish_date' => '1967',
+                        'covers'       => [12345],
+                        'works'        => [['key' => '/works/OL123W']],
+                    ],
+                ],
+            ], 200),
+        ]);
+
+        $servicio  = new OpenLibraryService();
+        $resultado = $servicio->buscarPorIsbn('9780060883287');
+
+        $this->assertNotNull($resultado);
+        $this->assertEquals('Cien años de soledad', $resultado['titulo']);
+    }
+
+    public function test_buscar_por_isbn_retorna_null_si_no_encuentra(): void
+    {
+        Http::fake([
+            'openlibrary.org/api/books*' => Http::response([], 200),
+        ]);
+
+        $servicio  = new OpenLibraryService();
+        $resultado = $servicio->buscarPorIsbn('0000000000000');
+
+        $this->assertNull($resultado);
+    }
+
+    public function test_importar_libro_retorna_null_si_api_falla(): void
+    {
+        Http::fake([
+            'openlibrary.org/works/OL999W.json' => Http::response([], 500),
+        ]);
+
+        $categoria = Categoria::factory()->create();
+        $servicio  = new OpenLibraryService();
+
+        $libro = $servicio->importarLibro('OL999W', $categoria->id);
+
+        $this->assertNull($libro);
+    }
+
+    public function test_importar_libro_sin_autor_key(): void
+    {
+        Http::fake([
+            'openlibrary.org/works/OL456W.json' => Http::response([
+                'title'       => 'Libro sin autor',
+                'description' => 'Descripcion.',
+                'covers'      => [],
+                'authors'     => [],
+            ], 200),
+        ]);
+
+        $categoria = Categoria::factory()->create();
+        $servicio  = new OpenLibraryService();
+
+        $libro = $servicio->importarLibro('OL456W', $categoria->id);
+
+        $this->assertNotNull($libro);
+        $this->assertEquals('Libro sin autor', $libro->titulo);
+    }
+
     public function test_importar_libro_crea_autor_y_libro_en_bd(): void
     {
         Http::fake([

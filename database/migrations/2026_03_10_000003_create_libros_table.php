@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('portada_url')->nullable();
             $table->integer('anio_publicacion')->nullable();
             $table->integer('copias_disponibles')->default(1);
-            $table->foreignId('autor_id')->constrained('autores')->cascadeOnDelete();
+            $table->foreignId('autor_id')->nullable()->constrained('autores')->nullOnDelete();
             $table->foreignId('categoria_id')->constrained('categorias')->cascadeOnDelete();
             $table->timestamps();
         });

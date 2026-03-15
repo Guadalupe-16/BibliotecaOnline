@@ -47,7 +47,7 @@
                 Importar libros
             </a>
 
-            <a href="#"
+            <a href="{{ route('favoritos') }}"
                 x-on:mouseenter="$el.classList.add('bg-white/5', 'text-white')"
                 x-on:mouseleave="$el.classList.remove('bg-white/5', 'text-white')"
                 class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
@@ -195,7 +195,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                 Importar libros
             </a>
-            <a href="#" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
+            <a href="{{ route('favoritos') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/5 transition-all duration-200">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                 Favoritos
             </a>
