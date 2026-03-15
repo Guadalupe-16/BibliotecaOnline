@@ -1,18 +1,53 @@
 <div>
     {{-- Campo de búsqueda --}}
-    <div class="relative mb-8">
+    <div class="relative mb-4">
         <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
-            viewBox="0 0 
-  24 24">
+            viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
         <input type="text" wire:model.live.debounce.300ms="termino" placeholder="Buscar por título o autor..."
-            class="w-full bg-[#1e2130] border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder-gray-500
-  focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+            class="w-full bg-[#1e2130] border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
         @if ($termino)
             <button wire:click="$set('termino', '')"
                 class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition">✕</button>
+        @endif
+    </div>
+
+    {{-- Filtros dependientes --}}
+    <div class="flex flex-col sm:flex-row gap-3 mb-8">
+        {{-- Combo categoría --}}
+        <div class="flex-1">
+            <select wire:model.live="categoriaId"
+                class="w-full bg-[#1e2130] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                <option value="">Todas las categorías</option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- Combo autor (dependiente de categoría) --}}
+        <div class="flex-1">
+            <select wire:model.live="autorId"
+                class="w-full bg-[#1e2130] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition
+                    {{ $autores->isEmpty() ? 'opacity-50 cursor-not-allowed' : '' }}"
+                {{ $autores->isEmpty() ? 'disabled' : '' }}>
+                <option value="">
+                    {{ $categoriaId ? 'Todos los autores de esta categoría' : 'Todos los autores' }}
+                </option>
+                @foreach ($autores as $autor)
+                    <option value="{{ $autor->id }}">{{ $autor->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- Limpiar filtros --}}
+        @if ($categoriaId || $autorId)
+            <button wire:click="$set('categoriaId', ''); $set('autorId', '')"
+                class="px-4 py-3 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white rounded-xl transition text-sm whitespace-nowrap">
+                Limpiar filtros
+            </button>
         @endif
     </div>
 
