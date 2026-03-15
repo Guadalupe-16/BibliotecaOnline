@@ -59,9 +59,6 @@ Route::get('/forgot-password', function () {
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 
-Route::get('/logs', function () {
-    return view('logs.index');
-})->name('logs');
 
 Route::post('/forgot-password', [RecuperacionContrasenaController::class, 'enviarEnlace'])
     ->name('password.email');
@@ -82,6 +79,8 @@ Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
 
     Route::get('/admin/roles', [RbacController::class, 'index'])->name('admin.rbac.index');
     Route::put('/admin/roles/{id}', [RbacController::class, 'actualizar'])->name('admin.rbac.actualizar');
+
+    Route::get('/admin/logs', fn() => view('logs.index'))->name('admin.logs');
 });
 
 // Rutas solo para usuarios autenticados
