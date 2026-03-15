@@ -7,6 +7,7 @@ use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\SuperAdminController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -94,4 +95,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/usuarios/{id}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
     Route::put('/usuarios/{id}', [UsuarioController::class, 'update'])->name('usuarios.update');
     Route::delete('/usuarios/{id}', [UsuarioController::class, 'destroy'])->name('usuarios.destroy');
+});
+
+Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->name('superadmin.')->group(function () {
+    Route::get('/', [SuperAdminController::class, 'index'])->name('index');
+    Route::post('/usuarios/{id}/toggle-estado', [SuperAdminController::class, 'toggleEstado'])->name('toggleEstado');
+    Route::post('/usuarios/{id}/cambiar-rol/{rol}', [SuperAdminController::class, 'cambiarRol'])->name('cambiarRol');
+});
+
+// Temporal //
+Route::get('/login-super', function () {
+    $usuario = \App\Models\User::where('email', 'super@test.com')->first();
+    auth()->login($usuario);
+    return redirect('/superadmin');
 });

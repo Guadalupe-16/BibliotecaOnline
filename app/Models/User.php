@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'rol',
+        'activo',
     ];
 
     /**
@@ -44,6 +45,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'activo' => 'boolean',
         ];
     }
 
@@ -59,14 +61,18 @@ class User extends Authenticatable
         return $this->favoritos()->where('libro_id', $libro_id)->exists();
     }
 
-    public function esAdmin(): bool
-{
-    return $this->rol === 'admin';
-}
+        public function esAdmin(): bool
+    {
+        return $this->rol === 'admin';
+    }
 
-public function esUsuario(): bool
-{
-    return $this->rol === 'usuario';
-}
+        public function esUsuario(): bool
+    {
+        return $this->rol === 'usuario';
+    }
 
+    public function esSuperAdmin(): bool
+    {
+        return $this->rol === 'superadmin';
+    }
 }
