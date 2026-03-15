@@ -60,13 +60,28 @@ class User extends Authenticatable
     }
 
     public function esAdmin(): bool
-{
-    return $this->rol === 'admin';
-}
+    {
+        return $this->rol === 'admin';
+    }
 
-public function esUsuario(): bool
-{
-    return $this->rol === 'usuario';
-}
+    public function esUsuario(): bool
+    {
+        return $this->rol === 'usuario';
+    }
 
+    public function estaVerificado(): bool
+    {
+        return $this->email_verified_at !== null;
+    }
+
+    public function marcarComoVerificado(): void
+    {
+        $this->email_verified_at = now();
+        $this->save();
+    }
+
+    public static function crear(array $datos): self
+    {
+        return self::create($datos);
+    }
 }
