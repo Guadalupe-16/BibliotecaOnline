@@ -133,12 +133,16 @@
             <span class="text-[10px] font-semibold tracking-widest text-white/30 uppercase px-3 mb-1">Cuenta</span>
             @auth
                 <div class="flex items-center gap-3 px-3 py-2 mb-1">
-                    <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
-                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                    </div>
+                    @if(auth()->user()->foto)
+                        <img src="{{ asset('storage/' . auth()->user()->foto) }}" alt="Foto" class="w-8 h-8 rounded-full object-cover border border-indigo-500/50">
+                    @else
+                        <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                        </div>
+                    @endif
                     <span class="text-sm text-white/80 truncate">{{ auth()->user()->name }}</span>
                 </div>
-                <a href="#" x-on:mouseenter="$el.classList.add('bg-white/5','text-white')" x-on:mouseleave="$el.classList.remove('bg-white/5','text-white')" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
+                <a href="{{ route('perfil') }}" x-on:mouseenter="$el.classList.add('bg-white/5','text-white')" x-on:mouseleave="$el.classList.remove('bg-white/5','text-white')" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                     Mi perfil
                 </a>
@@ -254,9 +258,13 @@
         <div class="flex flex-col gap-1">
             <span class="text-[10px] font-semibold tracking-widest text-white/30 uppercase px-3 mb-1">Cuenta</span>
             <div class="flex items-center gap-3 px-3 py-2">
-                <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
-                    {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                </div>
+                @if(auth()->user()->foto)
+                    <img src="{{ asset('storage/' . auth()->user()->foto) }}" alt="Foto" class="w-8 h-8 rounded-full object-cover border border-indigo-500/50">
+                @else
+                    <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
+                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                    </div>
+                @endif
                 <span class="text-sm text-white/80 truncate">{{ auth()->user()->name }}</span>
             </div>
             <form method="POST" action="{{ route('logout') }}">
