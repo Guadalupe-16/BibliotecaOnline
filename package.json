@@ -8,19 +8,24 @@
         "lint": "eslint resources/js --ext .js",
         "lint:fix": "eslint resources/js --ext .js --fix",
         "format": "prettier --write resources/js",
-        "format:check": "prettier --check resources/js"
+        "format:check": "prettier --check resources/js",
+        "test": "vitest run",
+        "test:coverage": "vitest run --coverage"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.2.0",
+        "@vitest/coverage-v8": "^4.1.0",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "eslint": "^9.0.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
+        "jsdom": "^29.0.0",
         "laravel-vite-plugin": "^2.0.0",
         "prettier": "^3.0.0",
         "tailwindcss": "^4.2.0",
-        "vite": "^7.0.7"
+        "vite": "^7.0.7",
+        "vitest": "^4.1.0"
     },
     "dependencies": {
         "alpinejs": "^3.15.8"
