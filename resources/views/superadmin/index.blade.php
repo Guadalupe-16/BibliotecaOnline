@@ -53,7 +53,7 @@ function toggleDropdown(btn) {
         @endif
 
         {{-- Tarjetas de resumen --}}
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div class="bg-[#1a1d2e] rounded-2xl p-6 border border-white/5">
                 <p class="text-white/40 text-sm">Total usuarios</p>
                 <p class="text-3xl font-bold text-white mt-1">{{ $total_usuarios }}</p>
@@ -66,6 +66,10 @@ function toggleDropdown(btn) {
                 <p class="text-white/40 text-sm">Superadmins</p>
                 <p class="text-3xl font-bold text-purple-400 mt-1">{{ $total_superadmins }}</p>
             </div>
+            <a href="{{ route('superadmin.grafica') }}" class="bg-[#1a1d2e] rounded-2xl p-6 border border-white/5 hover:border-indigo-500/30 transition-all duration-200">
+                <p class="text-white/40 text-sm">Gráfica de registros</p>
+                <p class="text-lg font-bold text-indigo-400 mt-1">Ver gráfica →</p>
+            </a>
         </div>
 
         {{-- Tabla de usuarios --}}
