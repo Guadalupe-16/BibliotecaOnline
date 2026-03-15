@@ -36,13 +36,19 @@ Route::middleware('auth')->group(function () {
     })->name('logout');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', fn() => view('auth.login'))->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+    Route::get('/register', fn() => view('auth.register'))->name('register');
+    Route::post('/register', [AuthController::class, 'registrar']);
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/verificar-email/{id}', [VerificacionEmailController::class, 'mostrar'])->name('verificar.email.mostrar');
+Route::post('/verificar-email/{id}', [VerificacionEmailController::class, 'verificar'])->name('verificar.email.verificar');
+Route::post('/verificar-email/{id}/reenviar', [VerificacionEmailController::class, 'reenviar'])->name('verificar.email.reenviar');
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
