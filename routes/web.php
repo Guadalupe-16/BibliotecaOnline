@@ -120,6 +120,8 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->name('supe
     Route::get('/', [SuperAdminController::class, 'index'])->name('index');
     Route::post('/usuarios/{id}/toggle-estado', [SuperAdminController::class, 'toggleEstado'])->name('toggleEstado');
     Route::post('/usuarios/{id}/cambiar-rol/{rol}', [SuperAdminController::class, 'cambiarRol'])->name('cambiarRol');
+    Route::get('/stats/usuarios', [SuperAdminController::class, 'statsUsuarios'])->name('stats.usuarios');
+    Route::get('/grafica', [SuperAdminController::class, 'grafica'])->name('grafica');
 });
 
 // Temporal //
@@ -135,3 +137,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
     Route::post('/perfil', [PerfilController::class, 'actualizar'])->name('perfil.actualizar');
 });
+
