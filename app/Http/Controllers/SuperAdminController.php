@@ -50,4 +50,22 @@ class SuperAdminController extends Controller
 
         return back()->with('success', "Rol actualizado a {$nuevoRol}.");
     }
+
+    public function statsUsuarios()
+    {
+        $datos = \App\Models\User::selectRaw('DATE(created_at) as fecha, COUNT(*) as total')
+            ->groupBy('fecha')
+            ->orderBy('fecha')
+            ->get();
+
+        return response()->json([
+            'fechas'   => $datos->pluck('fecha'),
+            'totales'  => $datos->pluck('total'),
+        ]);
+    }
+
+    public function grafica()
+    {
+        return view('superadmin.grafica');
+    }
 }
