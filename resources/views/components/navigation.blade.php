@@ -98,6 +98,33 @@
             </div>
         </div>
 
+        {{-- Sección Admin (solo admin y superadmin) --}}
+        @auth
+            @if(in_array(auth()->user()->rol, ['admin', 'superadmin']))
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] font-semibold tracking-widest text-white/30 uppercase px-3 mb-1">Administración</span>
+                <a href="{{ route('admin.logs') }}"
+                    x-on:mouseenter="$el.classList.add('bg-indigo-500/10', 'text-indigo-300')"
+                    x-on:mouseleave="$el.classList.remove('bg-indigo-500/10', 'text-indigo-300')"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                    </svg>
+                    Registro de actividad
+                </a>
+                <a href="{{ route('admin.rbac.index') }}"
+                    x-on:mouseenter="$el.classList.add('bg-indigo-500/10', 'text-indigo-300')"
+                    x-on:mouseleave="$el.classList.remove('bg-indigo-500/10', 'text-indigo-300')"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    Gestión de roles
+                </a>
+            </div>
+            @endif
+        @endauth
+
         {{-- Spacer --}}
         <div class="flex-1"></div>
 
@@ -204,6 +231,22 @@
                 Mis lecturas
             </a>
         </div>
+
+        @auth
+            @if(in_array(auth()->user()->rol, ['admin', 'superadmin']))
+            <div class="flex flex-col gap-1">
+                <span class="text-[10px] font-semibold tracking-widest text-indigo-400/60 uppercase px-3 mb-1">Administración</span>
+                <a href="{{ route('admin.logs') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-indigo-300 hover:bg-indigo-500/10 transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                    Registro de actividad
+                </a>
+                <a href="{{ route('admin.rbac.index') }}" x-on:click="menuAbierto = false" class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/60 hover:text-indigo-300 hover:bg-indigo-500/10 transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    Gestión de roles
+                </a>
+            </div>
+            @endif
+        @endauth
 
         <div class="flex-1"></div>
 

@@ -34,7 +34,15 @@ class ActivityLogger extends Component
     {
         $logs = ActivityLog::with('user')
             ->when($this->filtroUsuario, function ($q) {
-                $q->whereHas('user', fn($u) => $u->where('name', 'like', "%{$this->filtroUsuario}%"));
+                $termino = $this->filtroUsuario;
+                $q->where(function ($sub) use ($termino) {
+                    $sub->whereHas('user', fn($u) => $u->where('name', 'like', "%{$termino}%"))
+                        ->orWhere(function ($orQ) use ($termino) {
+                            if (str_contains(mb_strtolower('Anónimo'), mb_strtolower($termino))) {
+                                $orQ->whereNull('user_id');
+                            }
+                        });
+                });
             })
             ->when($this->filtroAccion, fn($q) => $q->where('accion', 'like', "%{$this->filtroAccion}%"))
             ->when($this->fechaDesde, fn($q) => $q->whereDate('created_at', '>=', $this->fechaDesde))
