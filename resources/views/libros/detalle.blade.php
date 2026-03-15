@@ -60,6 +60,31 @@
                     @endif
                 </div>
 
+                {{-- Favorito --}}
+                @auth
+                    @php $esFav = auth()->user()->esFavorito($libro->id); @endphp
+                    <div class="mt-4" x-data="{ esFavorito: {{ $esFav ? 'true' : 'false' }} }">
+                        <button
+                            x-on:click="
+                                fetch('/favoritos/{{ $libro->id }}/toggle', {
+                                    method: 'POST',
+                                    headers: {
+                                        'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content,
+                                        'Content-Type': 'application/json'
+                                    }
+                                }).then(r => r.json()).then(d => esFavorito = d.esFavorito)
+                            "
+                            x-bind:class="esFavorito ? 'text-pink-400 bg-pink-400/20 border-pink-400/30' : 'text-gray-400 bg-white/5 border-white/10 hover:text-pink-400'"
+                            class="inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border transition-all duration-200"
+                        >
+                            <svg x-bind:class="esFavorito ? 'fill-current' : ''" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                            <span x-text="esFavorito ? 'Quitar de favoritos' : 'Agregar a favoritos'"></span>
+                        </button>
+                    </div>
+                @endauth
+
                 {{-- Descripción --}}
                 @if ($libro->descripcion)
                     <div class="mt-6">
