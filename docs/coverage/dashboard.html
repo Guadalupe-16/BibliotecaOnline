@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for C:\Users\quint\Desktop\BibliotecaOnline\app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.12" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.12" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.12" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">C:\Users\quint\Desktop\BibliotecaOnline\app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/SitemapController.php.html#7">App\Http\Controllers\SitemapController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#8">App\Http\Controllers\UsuarioController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsuarioRepository.php.html#7">App\Repositories\UsuarioRepository</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#10">App\Models\User</a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#10">App\Http\Controllers\VerificacionEmailController</a></td><td class="text-right">76%</td></tr>
+       <tr><td><a href="Http/Middleware/VerificarRol.php.html#9">App\Http\Middleware\VerificarRol</a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Livewire/BuscadorLibros.php.html#11">App\Livewire\BuscadorLibros</a></td><td class="text-right">81%</td></tr>
+       <tr><td><a href="Models/ActivityLog.php.html#7">App\Models\ActivityLog</a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#13">App\Http\Controllers\AuthController</a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#13">App\Providers\AppServiceProvider</a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#10">App\Http\Controllers\VerificacionEmailController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#13">App\Http\Controllers\AuthController</a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Http/Middleware/VerificarRol.php.html#9">App\Http\Middleware\VerificarRol</a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AuthController.php.html#63"><abbr title="App\Http\Controllers\AuthController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/SitemapController.php.html#9"><abbr title="App\Http\Controllers\SitemapController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#10"><abbr title="App\Http\Controllers\UsuarioController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#14"><abbr title="App\Http\Controllers\UsuarioController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#20"><abbr title="App\Http\Controllers\UsuarioController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#26"><abbr title="App\Http\Controllers\UsuarioController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/UsuarioController.php.html#38"><abbr title="App\Http\Controllers\UsuarioController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#12"><abbr title="App\Http\Controllers\VerificacionEmailController::mostrar">mostrar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/BuscadorLibros.php.html#24"><abbr title="App\Livewire\BuscadorLibros::updatingCategoriaId">updatingCategoriaId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/BuscadorLibros.php.html#30"><abbr title="App\Livewire\BuscadorLibros::updatingAutorId">updatingAutorId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/ActivityLog.php.html#11"><abbr title="App\Models\ActivityLog::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#62"><abbr title="App\Models\User::esAdmin">esAdmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#67"><abbr title="App\Models\User::esUsuario">esUsuario</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#88"><abbr title="App\Models\User::esSuperadmin">esSuperadmin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#93"><abbr title="App\Models\User::tieneRol">tieneRol</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#98"><abbr title="App\Models\User::rolesDisponibles">rolesDisponibles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsuarioRepository.php.html#9"><abbr title="App\Repositories\UsuarioRepository::todos">todos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsuarioRepository.php.html#14"><abbr title="App\Repositories\UsuarioRepository::buscarPorId">buscarPorId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsuarioRepository.php.html#19"><abbr title="App\Repositories\UsuarioRepository::actualizar">actualizar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Repositories/UsuarioRepository.php.html#26"><abbr title="App\Repositories\UsuarioRepository::eliminar">eliminar</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Services/OpenLibraryService.php.html#117"><abbr title="App\Services\OpenLibraryService::extraerDescripcion">extraerDescripcion</abbr></a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#45"><abbr title="App\Http\Controllers\VerificacionEmailController::reenviar">reenviar</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Http/Middleware/VerificarRol.php.html#11"><abbr title="App\Http\Middleware\VerificarRol::handle">handle</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="Providers/AppServiceProvider.php.html#26"><abbr title="App\Providers\AppServiceProvider::boot">boot</abbr></a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#12"><abbr title="App\Http\Controllers\VerificacionEmailController::mostrar">mostrar</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Middleware/VerificarRol.php.html#11"><abbr title="App\Http\Middleware\VerificarRol::handle">handle</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Services/OpenLibraryService.php.html#117"><abbr title="App\Services\OpenLibraryService::extraerDescripcion">extraerDescripcion</abbr></a></td><td class="text-right">2</td></tr>
+       <tr><td><a href="Http/Controllers/VerificacionEmailController.php.html#45"><abbr title="App\Http\Controllers\VerificacionEmailController::reenviar">reenviar</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.12</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.14</a> and <a href="https://phpunit.de/">PHPUnit 11.5.55</a> at Sun Mar 15 10:44:22 MST 2026.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.12" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.12" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.12" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,0,0,0,1,1,5,1,17], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([20,0,0,0,0,0,0,0,1,3,4,54], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[86.48648648648648,7,"<a href=\"Http\/Controllers\/AuthController.php.html#13\">App\\Http\\Controllers\\AuthController<\/a>"],[100,1,"<a href=\"Http\/Controllers\/CatalogoController.php.html#8\">App\\Http\\Controllers\\CatalogoController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#5\">App\\Http\\Controllers\\Controller<\/a>"],[100,3,"<a href=\"Http\/Controllers\/FavoritoController.php.html#9\">App\\Http\\Controllers\\FavoritoController<\/a>"],[100,1,"<a href=\"Http\/Controllers\/LibroController.php.html#7\">App\\Http\\Controllers\\LibroController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/OpenLibraryController.php.html#11\">App\\Http\\Controllers\\OpenLibraryController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/RbacController.php.html#8\">App\\Http\\Controllers\\RbacController<\/a>"],[100,5,"<a href=\"Http\/Controllers\/RecuperacionContrasenaController.php.html#11\">App\\Http\\Controllers\\RecuperacionContrasenaController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/SitemapController.php.html#7\">App\\Http\\Controllers\\SitemapController<\/a>"],[0,5,"<a href=\"Http\/Controllers\/UsuarioController.php.html#8\">App\\Http\\Controllers\\UsuarioController<\/a>"],[76.19047619047619,7,"<a href=\"Http\/Controllers\/VerificacionEmailController.php.html#10\">App\\Http\\Controllers\\VerificacionEmailController<\/a>"],[80,3,"<a href=\"Http\/Middleware\/VerificarRol.php.html#9\">App\\Http\\Middleware\\VerificarRol<\/a>"],[100,3,"<a href=\"Http\/Requests\/BuscarLibroRequest.php.html#7\">App\\Http\\Requests\\BuscarLibroRequest<\/a>"],[100,2,"<a href=\"Http\/Requests\/ImportarLibroRequest.php.html#7\">App\\Http\\Requests\\ImportarLibroRequest<\/a>"],[100,2,"<a href=\"Jobs\/ImportarLibroJob.php.html#10\">App\\Jobs\\ImportarLibroJob<\/a>"],[81.25,4,"<a href=\"Livewire\/BuscadorLibros.php.html#11\">App\\Livewire\\BuscadorLibros<\/a>"],[100,3,"<a href=\"Mail\/VerificacionPinMail.php.html#11\">App\\Mail\\VerificacionPinMail<\/a>"],[85.71428571428571,2,"<a href=\"Models\/ActivityLog.php.html#7\">App\\Models\\ActivityLog<\/a>"],[100,2,"<a href=\"Models\/Autor.php.html#9\">App\\Models\\Autor<\/a>"],[100,2,"<a href=\"Models\/Categoria.php.html#9\">App\\Models\\Categoria<\/a>"],[100,2,"<a href=\"Models\/Favorito.php.html#7\">App\\Models\\Favorito<\/a>"],[100,6,"<a href=\"Models\/Libro.php.html#10\">App\\Models\\Libro<\/a>"],[100,0,"<a href=\"Models\/MensajeSoporte.php.html#7\">App\\Models\\MensajeSoporte<\/a>"],[100,6,"<a href=\"Models\/Prestamo.php.html#10\">App\\Models\\Prestamo<\/a>"],[66.66666666666666,11,"<a href=\"Models\/User.php.html#10\">App\\Models\\User<\/a>"],[87.5,2,"<a href=\"Providers\/AppServiceProvider.php.html#13\">App\\Providers\\AppServiceProvider<\/a>"],[0,4,"<a href=\"Repositories\/UsuarioRepository.php.html#7\">App\\Repositories\\UsuarioRepository<\/a>"],[94.73684210526315,19,"<a href=\"Services\/OpenLibraryService.php.html#10\">App\\Services\\OpenLibraryService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Http\/Controllers\/AuthController.php.html#15\">App\\Http\\Controllers\\AuthController::registrar<\/a>"],[92.3076923076923,4,"<a href=\"Http\/Controllers\/AuthController.php.html#39\">App\\Http\\Controllers\\AuthController::login<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AuthController.php.html#63\">App\\Http\\Controllers\\AuthController::logout<\/a>"],[100,1,"<a href=\"Http\/Controllers\/AuthController.php.html#72\">App\\Http\\Controllers\\AuthController::enviarPin<\/a>"],[100,1,"<a href=\"Http\/Controllers\/CatalogoController.php.html#10\">App\\Http\\Controllers\\CatalogoController::index<\/a>"],[100,1,"<a href=\"Http\/Controllers\/FavoritoController.php.html#12\">App\\Http\\Controllers\\FavoritoController::index<\/a>"],[100,2,"<a href=\"Http\/Controllers\/FavoritoController.php.html#19\">App\\Http\\Controllers\\FavoritoController::toggle<\/a>"],[100,1,"<a href=\"Http\/Controllers\/LibroController.php.html#9\">App\\Http\\Controllers\\LibroController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/OpenLibraryController.php.html#13\">App\\Http\\Controllers\\OpenLibraryController::__construct<\/a>"],[100,1,"<a href=\"Http\/Controllers\/OpenLibraryController.php.html#17\">App\\Http\\Controllers\\OpenLibraryController::buscar<\/a>"],[100,1,"<a href=\"Http\/Controllers\/OpenLibraryController.php.html#31\">App\\Http\\Controllers\\OpenLibraryController::importar<\/a>"],[100,1,"<a href=\"Http\/Controllers\/RbacController.php.html#10\">App\\Http\\Controllers\\RbacController::index<\/a>"],[100,2,"<a href=\"Http\/Controllers\/RbacController.php.html#17\">App\\Http\\Controllers\\RbacController::actualizar<\/a>"],[100,2,"<a href=\"Http\/Controllers\/RecuperacionContrasenaController.php.html#13\">App\\Http\\Controllers\\RecuperacionContrasenaController::enviarEnlace<\/a>"],[100,1,"<a href=\"Http\/Controllers\/RecuperacionContrasenaController.php.html#28\">App\\Http\\Controllers\\RecuperacionContrasenaController::mostrarFormularioReset<\/a>"],[100,2,"<a href=\"Http\/Controllers\/RecuperacionContrasenaController.php.html#33\">App\\Http\\Controllers\\RecuperacionContrasenaController::resetear<\/a>"],[0,1,"<a href=\"Http\/Controllers\/SitemapController.php.html#9\">App\\Http\\Controllers\\SitemapController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/UsuarioController.php.html#10\">App\\Http\\Controllers\\UsuarioController::__construct<\/a>"],[0,1,"<a href=\"Http\/Controllers\/UsuarioController.php.html#14\">App\\Http\\Controllers\\UsuarioController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/UsuarioController.php.html#20\">App\\Http\\Controllers\\UsuarioController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/UsuarioController.php.html#26\">App\\Http\\Controllers\\UsuarioController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/UsuarioController.php.html#38\">App\\Http\\Controllers\\UsuarioController::destroy<\/a>"],[0,2,"<a href=\"Http\/Controllers\/VerificacionEmailController.php.html#12\">App\\Http\\Controllers\\VerificacionEmailController::mostrar<\/a>"],[100,3,"<a href=\"Http\/Controllers\/VerificacionEmailController.php.html#23\">App\\Http\\Controllers\\VerificacionEmailController::verificar<\/a>"],[80,2,"<a href=\"Http\/Controllers\/VerificacionEmailController.php.html#45\">App\\Http\\Controllers\\VerificacionEmailController::reenviar<\/a>"],[80,3,"<a href=\"Http\/Middleware\/VerificarRol.php.html#11\">App\\Http\\Middleware\\VerificarRol::handle<\/a>"],[100,1,"<a href=\"Http\/Requests\/BuscarLibroRequest.php.html#9\">App\\Http\\Requests\\BuscarLibroRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/BuscarLibroRequest.php.html#14\">App\\Http\\Requests\\BuscarLibroRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/BuscarLibroRequest.php.html#21\">App\\Http\\Requests\\BuscarLibroRequest::messages<\/a>"],[100,1,"<a href=\"Http\/Requests\/ImportarLibroRequest.php.html#9\">App\\Http\\Requests\\ImportarLibroRequest::authorize<\/a>"],[100,1,"<a href=\"Http\/Requests\/ImportarLibroRequest.php.html#14\">App\\Http\\Requests\\ImportarLibroRequest::rules<\/a>"],[100,1,"<a href=\"Jobs\/ImportarLibroJob.php.html#14\">App\\Jobs\\ImportarLibroJob::__construct<\/a>"],[100,1,"<a href=\"Jobs\/ImportarLibroJob.php.html#21\">App\\Jobs\\ImportarLibroJob::handle<\/a>"],[100,1,"<a href=\"Livewire\/BuscadorLibros.php.html#19\">App\\Livewire\\BuscadorLibros::updatingTermino<\/a>"],[0,1,"<a href=\"Livewire\/BuscadorLibros.php.html#24\">App\\Livewire\\BuscadorLibros::updatingCategoriaId<\/a>"],[0,1,"<a href=\"Livewire\/BuscadorLibros.php.html#30\">App\\Livewire\\BuscadorLibros::updatingAutorId<\/a>"],[100,1,"<a href=\"Livewire\/BuscadorLibros.php.html#35\">App\\Livewire\\BuscadorLibros::render<\/a>"],[100,1,"<a href=\"Mail\/VerificacionPinMail.php.html#15\">App\\Mail\\VerificacionPinMail::__construct<\/a>"],[100,1,"<a href=\"Mail\/VerificacionPinMail.php.html#19\">App\\Mail\\VerificacionPinMail::envelope<\/a>"],[100,1,"<a href=\"Mail\/VerificacionPinMail.php.html#26\">App\\Mail\\VerificacionPinMail::content<\/a>"],[0,1,"<a href=\"Models\/ActivityLog.php.html#11\">App\\Models\\ActivityLog::user<\/a>"],[100,1,"<a href=\"Models\/ActivityLog.php.html#16\">App\\Models\\ActivityLog::registrar<\/a>"],[100,1,"<a href=\"Models\/Autor.php.html#17\">App\\Models\\Autor::libros<\/a>"],[100,1,"<a href=\"Models\/Autor.php.html#22\">App\\Models\\Autor::totalLibros<\/a>"],[100,1,"<a href=\"Models\/Categoria.php.html#17\">App\\Models\\Categoria::libros<\/a>"],[100,1,"<a href=\"Models\/Categoria.php.html#22\">App\\Models\\Categoria::totalLibros<\/a>"],[100,1,"<a href=\"Models\/Favorito.php.html#17\">App\\Models\\Favorito::usuario<\/a>"],[100,1,"<a href=\"Models\/Favorito.php.html#23\">App\\Models\\Favorito::libro<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#25\">App\\Models\\Libro::autor<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#30\">App\\Models\\Libro::categoria<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#35\">App\\Models\\Libro::prestamos<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#40\">App\\Models\\Libro::estaDisponible<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#45\">App\\Models\\Libro::scopeBuscar<\/a>"],[100,1,"<a href=\"Models\/Libro.php.html#51\">App\\Models\\Libro::scopePorCategoria<\/a>"],[100,1,"<a href=\"Models\/Prestamo.php.html#29\">App\\Models\\Prestamo::user<\/a>"],[100,1,"<a href=\"Models\/Prestamo.php.html#34\">App\\Models\\Prestamo::libro<\/a>"],[100,2,"<a href=\"Models\/Prestamo.php.html#39\">App\\Models\\Prestamo::estaVencido<\/a>"],[100,1,"<a href=\"Models\/Prestamo.php.html#45\">App\\Models\\Prestamo::diasRestantes<\/a>"],[100,1,"<a href=\"Models\/Prestamo.php.html#50\">App\\Models\\Prestamo::crearPrestamo<\/a>"],[100,1,"<a href=\"Models\/User.php.html#42\">App\\Models\\User::casts<\/a>"],[100,1,"<a href=\"Models\/User.php.html#51\">App\\Models\\User::favoritos<\/a>"],[100,1,"<a href=\"Models\/User.php.html#57\">App\\Models\\User::esFavorito<\/a>"],[0,1,"<a href=\"Models\/User.php.html#62\">App\\Models\\User::esAdmin<\/a>"],[0,1,"<a href=\"Models\/User.php.html#67\">App\\Models\\User::esUsuario<\/a>"],[100,1,"<a href=\"Models\/User.php.html#72\">App\\Models\\User::estaVerificado<\/a>"],[100,1,"<a href=\"Models\/User.php.html#77\">App\\Models\\User::marcarComoVerificado<\/a>"],[100,1,"<a href=\"Models\/User.php.html#83\">App\\Models\\User::crear<\/a>"],[0,1,"<a href=\"Models\/User.php.html#88\">App\\Models\\User::esSuperadmin<\/a>"],[0,1,"<a href=\"Models\/User.php.html#93\">App\\Models\\User::tieneRol<\/a>"],[0,1,"<a href=\"Models\/User.php.html#98\">App\\Models\\User::rolesDisponibles<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#18\">App\\Providers\\AppServiceProvider::register<\/a>"],[85.71428571428571,1,"<a href=\"Providers\/AppServiceProvider.php.html#26\">App\\Providers\\AppServiceProvider::boot<\/a>"],[0,1,"<a href=\"Repositories\/UsuarioRepository.php.html#9\">App\\Repositories\\UsuarioRepository::todos<\/a>"],[0,1,"<a href=\"Repositories\/UsuarioRepository.php.html#14\">App\\Repositories\\UsuarioRepository::buscarPorId<\/a>"],[0,1,"<a href=\"Repositories\/UsuarioRepository.php.html#19\">App\\Repositories\\UsuarioRepository::actualizar<\/a>"],[0,1,"<a href=\"Repositories\/UsuarioRepository.php.html#26\">App\\Repositories\\UsuarioRepository::eliminar<\/a>"],[100,2,"<a href=\"Services\/OpenLibraryService.php.html#15\">App\\Services\\OpenLibraryService::buscarLibros<\/a>"],[95,6,"<a href=\"Services\/OpenLibraryService.php.html#31\">App\\Services\\OpenLibraryService::buscarPorIsbn<\/a>"],[95.23809523809523,4,"<a href=\"Services\/OpenLibraryService.php.html#61\">App\\Services\\OpenLibraryService::importarLibro<\/a>"],[92.3076923076923,3,"<a href=\"Services\/OpenLibraryService.php.html#94\">App\\Services\\OpenLibraryService::obtenerOCrearAutor<\/a>"],[75,2,"<a href=\"Services\/OpenLibraryService.php.html#117\">App\\Services\\OpenLibraryService::extraerDescripcion<\/a>"],[100,2,"<a href=\"Services\/OpenLibraryService.php.html#128\">App\\Services\\OpenLibraryService::mapearResultados<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

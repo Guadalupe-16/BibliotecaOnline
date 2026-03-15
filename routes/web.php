@@ -8,6 +8,10 @@ use App\Http\Controllers\LibroController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\RecuperacionContrasenaController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VerificacionEmailController;
+use App\Http\Controllers\RbacController;
 
 Route::get('/open-library', function () {
     return view('libros.buscar', [
@@ -36,13 +40,19 @@ Route::middleware('auth')->group(function () {
     })->name('logout');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', fn() => view('auth.login'))->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+    Route::get('/register', fn() => view('auth.register'))->name('register');
+    Route::post('/register', [AuthController::class, 'registrar']);
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/verificar-email/{id}', [VerificacionEmailController::class, 'mostrar'])->name('verificar.email.mostrar');
+Route::post('/verificar-email/{id}', [VerificacionEmailController::class, 'verificar'])->name('verificar.email.verificar');
+Route::post('/verificar-email/{id}/reenviar', [VerificacionEmailController::class, 'reenviar'])->name('verificar.email.reenviar');
 
 Route::get('/forgot-password', function () {
     return view('auth.forgot-password');
@@ -50,19 +60,28 @@ Route::get('/forgot-password', function () {
 
 Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo');
 
-Route::get('/logs', function () {
-    return view('logs.index');
-})->name('logs');
 
-Route::post('/forgot-password', function () {
-    return back()->with('status', 'Te enviamos el enlace a tu correo.');
-})->name('password.email');
+Route::post('/forgot-password', [RecuperacionContrasenaController::class, 'enviarEnlace'])
+    ->name('password.email');
 
-// Rutas solo para admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::get('/reset-password/{token}', [RecuperacionContrasenaController::class, 'mostrarFormularioReset'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [RecuperacionContrasenaController::class, 'resetear'])
+    ->middleware('guest')
+    ->name('password.update');
+
+// Rutas solo para admin y superadmin
+Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
     Route::get('/admin', function () {
         return 'Panel de administrador';
     })->name('admin.panel');
+
+    Route::get('/admin/roles', [RbacController::class, 'index'])->name('admin.rbac.index');
+    Route::put('/admin/roles/{id}', [RbacController::class, 'actualizar'])->name('admin.rbac.actualizar');
+
+    Route::get('/admin/logs', fn() => view('logs.index'))->name('admin.logs');
 });
 
 // Rutas solo para usuarios autenticados

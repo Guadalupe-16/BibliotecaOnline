@@ -66,13 +66,39 @@ class User extends Authenticatable
         return $this->rol === 'admin';
     }
 
-        public function esUsuario(): bool
+    public function esUsuario(): bool
     {
         return $this->rol === 'usuario';
     }
 
-    public function esSuperAdmin(): bool
+    public function estaVerificado(): bool
+    {
+        return $this->email_verified_at !== null;
+    }
+
+    public function marcarComoVerificado(): void
+    {
+        $this->email_verified_at = now();
+        $this->save();
+    }
+
+    public static function crear(array $datos): self
+    {
+        return self::create($datos);
+    }
+
+    public function esSuperadmin(): bool
     {
         return $this->rol === 'superadmin';
+    }
+
+    public function tieneRol(string ...$roles): bool
+    {
+        return in_array($this->rol, $roles, true);
+    }
+
+    public static function rolesDisponibles(): array
+    {
+        return ['usuario', 'admin', 'superadmin'];
     }
 }

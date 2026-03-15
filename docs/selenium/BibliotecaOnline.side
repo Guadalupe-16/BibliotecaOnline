@@ -1,0 +1,415 @@
+{
+  "id": "c242092a-7c17-4b1c-bb25-1b246f15a4af",
+  "version": "2.0",
+  "name": "BibliotecaOnline",
+  "url": "http://127.0.0.1:8001",
+  "tests": [{
+    "id": "e93f373a-335a-4ce6-aada-4d404624e559",
+    "name": "login-exitoso",
+    "commands": [{
+      "id": "49132a73-e335-4c68-88e4-5b11ae9a290b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e574504-6acb-45a9-8064-48def284c003",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a7765aa-18a8-4056-9b21-d7059cd7533a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Iniciar sesión",
+      "targets": [
+        ["linkText=Iniciar sesión", "linkText"],
+        ["css=.bg-white\\/5", "css:finder"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/login']", "xpath:href"],
+        ["xpath=//div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Iniciar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb3c3abd-d03d-4a8d-9ad9-77ffbe3fb11d",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "674a0fdd-f0bd-4e3f-8a06-7f211ca0a483",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "superadmin@biblioteca.com"
+    }, {
+      "id": "2c8c6d10-2e98-4f46-af59-53a1859383c9",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c896c365-f0b3-4d8f-b5c2-35a4f05265f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Superadmin123!"
+    }, {
+      "id": "c60f36a4-f578-460e-ab8b-4c91d4967a1c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.transform",
+      "targets": [
+        ["css=.transform", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "773d884d-9898-4fe5-abb1-366800abf629",
+    "name": "busqueda-libro ",
+    "commands": [{
+      "id": "480c56f8-dc4a-4652-9632-99a167ae1259",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d594b941-8149-43e3-8f4e-495d6a375384",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "88867bf9-2c82-483c-badb-0aa9ef4fe6a2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.bg-white\\/5", "css:finder"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/buscar']", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c1fe296-2e6f-4252-8f33-8cda1d08d3ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pl-12",
+      "targets": [
+        ["css=.pl-12", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddbc767d-8130-4195-8320-c7d4645291f7",
+      "comment": "",
+      "command": "type",
+      "target": "css=.pl-12",
+      "targets": [
+        ["css=.pl-12", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "geor"
+    }]
+  }, {
+    "id": "bd692a52-c905-40dc-950d-9dd6825a6ea7",
+    "name": "catalogo-navegacion",
+    "commands": [{
+      "id": "3cdb03d1-3e4e-4c30-b31b-cac1ecef4e8f",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a71e8aab-623c-48a0-9ca1-886a504f4295",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d7acdfb4-f82f-4929-9a43-8646931f4f6d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Catálogo",
+      "targets": [
+        ["linkText=Catálogo", "linkText"],
+        ["css=.bg-white\\/5", "css:finder"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/catalogo']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Catálogo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a595ef50-c6fb-47e9-9cf2-e768f726d566",
+      "comment": "",
+      "command": "click",
+      "target": "css=.scale-105 > .p-4",
+      "targets": [
+        ["css=.scale-105 > .p-4", "css:finder"],
+        ["xpath=//a/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f842e20-6e4b-43a0-97cf-1713e31b1b61",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex > .w-4",
+      "targets": [
+        ["css=.inline-flex > .w-4", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "aa910512-f41e-4326-913c-9bc059cc37b7",
+    "name": "favoritos",
+    "commands": [{
+      "id": "a305eff9-7da4-4173-8c8f-7222d93ee02b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89806ade-2877-4887-a4b0-cca5495f7ec8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bba74b08-9286-4518-8814-84fa2438b387",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Catálogo",
+      "targets": [
+        ["linkText=Catálogo", "linkText"],
+        ["css=.bg-white\\/5", "css:finder"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/catalogo']", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Catálogo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d131ff14-400f-4c34-85d1-2110d4829dc7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.scale-105 > .h-52",
+      "targets": [
+        ["css=.scale-105 > .h-52", "css:finder"],
+        ["xpath=//a/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50e82d53-3612-4796-96b6-02a2f4212dff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-white\\/5",
+      "targets": [
+        ["css=.bg-white\\/5", "css:finder"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Agregar a favoritos')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77a519c2-68b5-4f1b-94ed-7b57c8249d6b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fill-current > path",
+      "targets": [
+        ["css=.fill-current > path", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a31660fc-8e6c-4c61-ab15-d431d2112501",
+    "name": "panel-logs",
+    "commands": [{
+      "id": "68535914-411a-456d-b2c6-07ec6b03ae50",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ffef2e3f-fbe1-4abd-aa67-31cf37a737b9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a82e01b-aedd-4feb-9640-15c384e16fd9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Registro de actividad",
+      "targets": [
+        ["linkText=Registro de actividad", "linkText"],
+        ["css=.bg-indigo-500\\/10", "css:finder"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/admin/logs']", "xpath:href"],
+        ["xpath=//div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Registro de actividad')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ae98426-d611-4508-ae7d-8914ef980e84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.placeholder-gray-500:nth-child(2)",
+      "targets": [
+        ["css=.placeholder-gray-500:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e9313a1-b842-47f7-8f40-563e9b73327e",
+      "comment": "",
+      "command": "type",
+      "target": "css=.placeholder-gray-500:nth-child(2)",
+      "targets": [
+        ["css=.placeholder-gray-500:nth-child(2)", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "login"
+    }]
+  }, {
+    "id": "7f479cb4-a9fa-49f8-ac2e-04ef04e65d5b",
+    "name": "gestion-usuarios",
+    "commands": [{
+      "id": "0d55f9a8-cdb7-4b9d-b692-0b97dbe0a259",
+      "comment": "",
+      "command": "open",
+      "target": "/usuarios",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "748af455-7e62-465a-9066-edfdb8557581",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b1bf8c7-702b-40df-a5cc-b2d96e0475c9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Editar",
+      "targets": [
+        ["linkText=Editar", "linkText"],
+        ["css=.border-b:nth-child(1) .flex > .px-3", "css:finder"],
+        ["xpath=//a[contains(text(),'Editar')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8001/usuarios/3/edit']", "xpath:href"],
+        ["xpath=//td[4]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Editar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bd05d558-5598-48e8-b703-36bb936e71e2",
+    "name": "buscar-open-library ",
+    "commands": [{
+      "id": "6ddef268-7591-4bdb-9d4f-4d7817cd5cc5",
+      "comment": "",
+      "command": "open",
+      "target": "/open-library",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89a8dc59-118e-4b82-9e77-0c238055589a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1710x1073",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f005a30-cd4e-48e3-826a-6130bd6a0d61",
+      "comment": "",
+      "command": "click",
+      "target": "name=termino",
+      "targets": [
+        ["name=termino", "name"],
+        ["css=.border-gray-300", "css:finder"],
+        ["xpath=//input[@name='termino']", "xpath:attributes"],
+        ["xpath=//main/div/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60d6d2a4-823f-4e9c-a743-468cfc165a6c",
+      "comment": "",
+      "command": "type",
+      "target": "name=termino",
+      "targets": [
+        ["name=termino", "name"],
+        ["css=.border-gray-300", "css:finder"],
+        ["xpath=//input[@name='termino']", "xpath:attributes"],
+        ["xpath=//main/div/form/input", "xpath:position"]
+      ],
+      "value": "clean code"
+    }, {
+      "id": "096521ed-4b41-42ec-9a4e-a3a0051b613e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=termino",
+      "targets": [
+        ["name=termino", "name"],
+        ["css=.border-gray-300", "css:finder"],
+        ["xpath=//input[@name='termino']", "xpath:attributes"],
+        ["xpath=//main/div/form/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }]
+  }],
+  "suites": [{
+    "id": "a3a1ecd0-de54-4ad8-9ad5-5cf69f28d303",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://127.0.0.1:8001/"],
+  "plugins": []
+}
