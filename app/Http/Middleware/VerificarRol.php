@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class VerificarRol
 {
-    public function handle(Request $request, Closure $next, string $rol): Response
+    public function handle(Request $request, Closure $next, string ...$roles): Response
     {
         if (!auth()->check()) {
             return redirect()->route('login');
         }
 
-        if (auth()->user()->rol !== $rol) {
+        if (!in_array(auth()->user()->rol, $roles, true)) {
             abort(403, 'No tienes permiso para acceder a esta página.');
         }
 

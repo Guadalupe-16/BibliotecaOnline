@@ -84,4 +84,19 @@ class User extends Authenticatable
     {
         return self::create($datos);
     }
+
+    public function esSuperadmin(): bool
+    {
+        return $this->rol === 'superadmin';
+    }
+
+    public function tieneRol(string ...$roles): bool
+    {
+        return in_array($this->rol, $roles, true);
+    }
+
+    public static function rolesDisponibles(): array
+    {
+        return ['usuario', 'admin', 'superadmin'];
+    }
 }
