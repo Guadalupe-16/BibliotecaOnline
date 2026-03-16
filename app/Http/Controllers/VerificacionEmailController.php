@@ -36,10 +36,8 @@ class VerificacionEmailController extends Controller
         $usuario->marcarComoVerificado();
         Cache::forget("email_pin_{$usuario->id}");
 
-        Auth::login($usuario);
-
-        return redirect()->route('catalogo')
-            ->with('success', '¡Correo verificado! Bienvenido a la Biblioteca Digital.');
+        return redirect()->route('login')
+            ->with('pin_verificado', '¡PIN correcto! Tu correo ha sido verificado. Ya puedes iniciar sesión.');
     }
 
     public function reenviar(int $id)

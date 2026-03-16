@@ -47,6 +47,26 @@
                 <p class="text-white/40 text-sm mt-1">Accede a tu cuenta para continuar</p>
             </div>
 
+            {{-- Mensaje de éxito (ej. contraseña restablecida) --}}
+            @if (session('status'))
+                <div class="mb-4 flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Tu contraseña ha sido restablecida correctamente.
+                </div>
+            @endif
+
+            {{-- Mensaje PIN verificado --}}
+            @if (session('pin_verificado'))
+                <div class="mb-4 flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    {{ session('pin_verificado') }}
+                </div>
+            @endif
+
             {{-- Errores de sesión --}}
             @if (session('error'))
                 <div class="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
