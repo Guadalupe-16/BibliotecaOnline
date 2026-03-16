@@ -7,6 +7,7 @@ use App\Models\Libro;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Queue;
 
 class OpenLibraryControllerTest extends TestCase
 {
@@ -55,6 +56,9 @@ class OpenLibraryControllerTest extends TestCase
 
     public function test_importar_libro_despacha_job(): void
     {
+        Queue::fake();
+        Http::fake();
+
         $categoria = Categoria::factory()->create();
 
         $respuesta = $this->post(route('open-library.importar'), [
