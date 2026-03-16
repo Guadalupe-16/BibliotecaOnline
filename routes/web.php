@@ -87,7 +87,7 @@ Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
 // Rutas solo para usuarios autenticados
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return 'Dashboard de usuario';
+        return view('dashboard');
     })->name('dashboard');
 });
 

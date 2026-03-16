@@ -32,7 +32,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Event::listen(Logout::class, function ($event) {
-            ActivityLog::registrar('logout', "El usuario {$event->user->name} cerró sesión.");
+            if ($event->user) {
+                ActivityLog::registrar('logout', "El usuario {$event->user->name} cerró sesión.");
+            }
         });
     }
 }

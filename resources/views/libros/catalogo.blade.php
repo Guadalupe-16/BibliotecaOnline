@@ -3,6 +3,20 @@
 @section('content')
     <div class="max-w-7xl mx-auto px-4 py-8">
 
+        {{-- Mensaje de éxito --}}
+        @if (session('status'))
+            <div x-data="{ show: true }" x-show="show"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 -translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                class="mb-6 flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-xl text-green-400 text-sm">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                Tu contraseña ha sido restablecida correctamente.
+            </div>
+        @endif
+
         {{-- Encabezado --}}
         <div class="mb-8">
             <h1 class="text-3xl font-bold text-white">Catálogo de Libros</h1>
