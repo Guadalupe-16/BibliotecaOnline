@@ -50,8 +50,10 @@ class RecuperacionContrasenaController extends Controller
             }
         );
 
-        return $estado === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($estado))
-            : back()->withInput()->withErrors(['email' => __($estado)]);
+        if ($estado === Password::PASSWORD_RESET) {
+            return redirect()->route('catalogo')->with('status', 'Tu contraseña ha sido restablecida correctamente.');
+        }
+
+        return back()->withInput()->withErrors(['email' => __($estado)]);
     }
 }
