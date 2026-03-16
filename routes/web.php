@@ -137,4 +137,3 @@ Route::middleware('auth')->group(function () {
     Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
     Route::post('/perfil', [PerfilController::class, 'actualizar'])->name('perfil.actualizar');
 });
-
