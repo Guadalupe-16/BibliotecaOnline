@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Categoria;
 use App\Models\Libro;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
@@ -23,6 +24,7 @@ class OpenLibraryControllerTest extends TestCase
 
     public function test_buscar_retorna_resultados(): void
     {
+        $usuario = User::factory()->create(['rol' => 'usuario']);
         Categoria::factory()->create();
 
         Http::fake([
@@ -40,7 +42,8 @@ class OpenLibraryControllerTest extends TestCase
             ], 200),
         ]);
 
-        $respuesta = $this->get(route('open-library.buscar') . '?termino=harry+potter');
+        $respuesta = $this->actingAs($usuario)
+            ->get(route('open-library.buscar') . '?termino=harry+potter');
 
         $respuesta->assertStatus(200);
         $respuesta->assertViewIs('libros.buscar');
@@ -49,9 +52,18 @@ class OpenLibraryControllerTest extends TestCase
 
     public function test_buscar_requiere_termino(): void
     {
-        $respuesta = $this->get(route('open-library.buscar'));
+        $usuario = User::factory()->create(['rol' => 'usuario']);
+
+        $respuesta = $this->actingAs($usuario)->get(route('open-library.buscar'));
 
         $respuesta->assertRedirect();
+    }
+
+    public function test_buscar_requiere_autenticacion(): void
+    {
+        $respuesta = $this->get(route('open-library.buscar') . '?termino=harry+potter');
+
+        $respuesta->assertRedirect(route('login'));
     }
 
     public function test_importar_libro_despacha_job(): void
@@ -59,9 +71,10 @@ class OpenLibraryControllerTest extends TestCase
         Queue::fake();
         Http::fake();
 
+        $admin = User::factory()->create(['rol' => 'admin']);
         $categoria = Categoria::factory()->create();
 
-        $respuesta = $this->post(route('open-library.importar'), [
+        $respuesta = $this->actingAs($admin)->post(route('open-library.importar'), [
             'olid'               => 'OL82563W',
             'categoria_id'       => $categoria->id,
             'copias_disponibles' => 2,
@@ -73,12 +86,42 @@ class OpenLibraryControllerTest extends TestCase
 
     public function test_importar_requiere_categoria_valida(): void
     {
-        $respuesta = $this->post(route('open-library.importar'), [
+        $admin = User::factory()->create(['rol' => 'admin']);
+
+        $respuesta = $this->actingAs($admin)->post(route('open-library.importar'), [
             'olid'         => 'OL82563W',
             'categoria_id' => 9999,
         ]);
 
         $respuesta->assertRedirect();
         $respuesta->assertSessionHasErrors('categoria_id');
+    }
+
+    public function test_importar_requiere_autenticacion(): void
+    {
+        $categoria = Categoria::factory()->create();
+
+        $respuesta = $this->post(route('open-library.importar'), [
+            'olid'         => 'OL82563W',
+            'categoria_id' => $categoria->id,
+        ]);
+
+        $respuesta->assertRedirect(route('login'));
+    }
+
+    public function test_importar_requiere_rol_autorizado(): void
+    {
+        Queue::fake();
+
+        $usuario = User::factory()->create(['rol' => 'usuario']);
+        $categoria = Categoria::factory()->create();
+
+        $respuesta = $this->actingAs($usuario)->post(route('open-library.importar'), [
+            'olid'         => 'OL82563W',
+            'categoria_id' => $categoria->id,
+        ]);
+
+        $respuesta->assertStatus(403);
+        Queue::assertNothingPushed();
     }
 }

@@ -21,11 +21,14 @@ Route::get('/open-library', function () {
     ]);
 })->name('open-library.index');
 
-Route::get('/open-library/buscar', [OpenLibraryController::class, 'buscar'])
-    ->name('open-library.buscar');
+Route::middleware('auth')->group(function () {
+    Route::get('/open-library/buscar', [OpenLibraryController::class, 'buscar'])
+        ->name('open-library.buscar');
 
-Route::post('/open-library/importar', [OpenLibraryController::class, 'importar'])
-    ->name('open-library.importar');
+    Route::post('/open-library/importar', [OpenLibraryController::class, 'importar'])
+        ->middleware('role:admin,superadmin')
+        ->name('open-library.importar');
+});
 
 Route::get('/', function () {
     return view('welcome');
