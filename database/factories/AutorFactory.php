@@ -9,7 +9,7 @@ class AutorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->name(),
+            'nombre' => $this->faker->unique()->name(),
             'nacionalidad' => $this->faker->country(),
             'biografia' => $this->faker->paragraph(),
         ];
