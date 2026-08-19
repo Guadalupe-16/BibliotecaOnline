@@ -11,7 +11,7 @@ class FavoritoController extends Controller
     // Mostrar lista de favoritos del usuario
     public function index()
     {
-        $favoritos = auth()->user()->favoritos()->with('libro')->get();
+        $favoritos = auth()->user()->favoritos()->with('libro.autor', 'libro.categoria')->get();
         return view('favoritos.index', compact('favoritos'));
     }
 
