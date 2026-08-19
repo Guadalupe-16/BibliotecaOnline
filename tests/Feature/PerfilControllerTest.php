@@ -53,7 +53,9 @@ class PerfilControllerTest extends TestCase
         Storage::fake('public');
         $usuario = User::factory()->create();
 
-        $foto = UploadedFile::fake()->image('foto.jpg', 100, 100);
+        // create() en lugar de image() para no depender de la extension GD,
+        // que no viene activada en todas las instalaciones del equipo.
+        $foto = UploadedFile::fake()->create('foto.jpg', 100, 'image/jpeg');
 
         $respuesta = $this->actingAs($usuario)->post('/perfil', [
             'name' => $usuario->name,

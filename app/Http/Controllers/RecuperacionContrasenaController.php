@@ -51,7 +51,9 @@ class RecuperacionContrasenaController extends Controller
         );
 
         if ($estado === Password::PASSWORD_RESET) {
-            return redirect()->route('catalogo')->with('status', 'Tu contraseña ha sido restablecida correctamente.');
+            // El usuario no queda autenticado, asi que se le manda a iniciar
+            // sesion: la vista de login ya muestra este mensaje de exito.
+            return redirect()->route('login')->with('status', 'Tu contraseña ha sido restablecida correctamente.');
         }
 
         return back()->withInput()->withErrors(['email' => __($estado)]);

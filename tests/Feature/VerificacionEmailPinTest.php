@@ -69,9 +69,12 @@ class VerificacionEmailPinTest extends TestCase
 
         $respuesta = $this->post("/verificar-email/{$usuario->id}", ['pin' => '123456']);
 
-        $respuesta->assertRedirect(route('catalogo'));
+        // Tras verificar el PIN el usuario no queda autenticado: se le manda a
+        // /login con el aviso de exito.
+        $respuesta->assertRedirect(route('login'));
+        $respuesta->assertSessionHas('pin_verificado');
         $this->assertNotNull($usuario->fresh()->email_verified_at);
-        $this->assertAuthenticatedAs($usuario);
+        $this->assertGuest();
     }
 
     public function test_pin_incorrecto_retorna_error(): void
