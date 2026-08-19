@@ -53,3 +53,26 @@ chmod +x .git/hooks/prepare-commit-msg
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # setup
+
+---
+
+## Acceso al panel de superadministrador
+
+El panel vive en `/superadmin` y exige **sesión iniciada** y **rol `superadmin`**.
+La única forma de entrar es por `/login` con una cuenta que tenga ese rol.
+
+### Nota de seguridad (issue #116)
+
+Existía una ruta temporal `/login-super` que iniciaba sesión automáticamente como
+el usuario `super@test.com` sin pedir credenciales. Cualquiera con el enlace obtenía
+control total del panel (cambiar roles, activar y desactivar usuarios).
+
+**La ruta fue eliminada.** Ya no existe en ningún entorno y responde `404`.
+Si necesitas una cuenta de superadmin para desarrollo, créala por seeder o por
+`php artisan tinker` asignando `rol = 'superadmin'`, e inicia sesión por `/login`.
+
+La regresión está cubierta por `tests/Feature/RutaLoginSuperTest.php`:
+
+    php artisan test --filter=RutaLoginSuperTest
+
+Evidencia del antes y después: `docs/evidencias/issue-116/`.
