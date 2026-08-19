@@ -127,12 +127,9 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('superadmin')->name('supe
     Route::get('/grafica', [SuperAdminController::class, 'grafica'])->name('grafica');
 });
 
-// Temporal //
-Route::get('/login-super', function () {
-    $usuario = \App\Models\User::where('email', 'super@test.com')->first();
-    auth()->login($usuario);
-    return redirect('/superadmin');
-});
+// La ruta temporal /login-super se elimino (issue #116): iniciaba sesion como
+// superadmin sin pedir credenciales. Para entrar al panel usa /login con una
+// cuenta con rol superadmin.
 
 use App\Http\Controllers\PerfilController;
 
