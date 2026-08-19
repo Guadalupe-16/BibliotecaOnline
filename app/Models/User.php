@@ -102,4 +102,43 @@ class User extends Authenticatable
     {
         return ['usuario', 'admin', 'superadmin'];
     }
+
+    /**
+     * Roles que el usuario indicado puede asignar a otros.
+     * Solo un superadmin puede otorgar el rol superadmin.
+     */
+    public static function rolesAsignablesPor(self $actor): array
+    {
+        return $actor->esSuperadmin()
+            ? self::rolesDisponibles()
+            : ['usuario', 'admin'];
+    }
+
+    /**
+     * Indica si este usuario puede modificar el rol del usuario objetivo.
+     * Nadie cambia su propio rol y un admin no puede tocar a un superadmin.
+     */
+    public function puedeGestionarRolDe(self $objetivo): bool
+    {
+        if ($this->id === $objetivo->id) {
+            return false;
+        }
+
+        return $this->esSuperadmin() || ! $objetivo->esSuperadmin();
+    }
+
+    /**
+     * Indica si este usuario puede asignar el rol indicado al usuario objetivo.
+     */
+    public function puedeAsignarRol(string $rol, self $objetivo): bool
+    {
+        return $this->puedeGestionarRolDe($objetivo)
+            && in_array($rol, self::rolesAsignablesPor($this), true);
+    }
+
+    public function cambiarRol(string $rol): void
+    {
+        $this->rol = $rol;
+        $this->save();
+    }
 }

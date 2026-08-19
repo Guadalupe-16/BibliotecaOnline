@@ -74,4 +74,74 @@ class RbacTest extends TestCase
     {
         $this->get('/admin/roles')->assertRedirect('/login');
     }
+
+    public function test_admin_no_puede_asignar_el_rol_superadmin(): void
+    {
+        $admin   = User::factory()->create(['rol' => 'admin']);
+        $usuario = User::factory()->create(['rol' => 'usuario']);
+
+        $this->actingAs($admin)
+            ->put("/admin/roles/{$usuario->id}", ['rol' => 'superadmin'])
+            ->assertSessionHas('error');
+
+        $this->assertEquals('usuario', $usuario->fresh()->rol);
+    }
+
+    public function test_admin_no_puede_retirar_el_rol_a_un_superadmin(): void
+    {
+        $admin      = User::factory()->create(['rol' => 'admin']);
+        $superadmin = User::factory()->create(['rol' => 'superadmin']);
+
+        $this->actingAs($admin)
+            ->put("/admin/roles/{$superadmin->id}", ['rol' => 'usuario'])
+            ->assertSessionHas('error');
+
+        $this->assertEquals('superadmin', $superadmin->fresh()->rol);
+    }
+
+    public function test_superadmin_si_puede_asignar_el_rol_superadmin(): void
+    {
+        $superadmin = User::factory()->create(['rol' => 'superadmin']);
+        $usuario    = User::factory()->create(['rol' => 'usuario']);
+
+        $this->actingAs($superadmin)
+            ->put("/admin/roles/{$usuario->id}", ['rol' => 'superadmin'])
+            ->assertSessionHas('success');
+
+        $this->assertEquals('superadmin', $usuario->fresh()->rol);
+    }
+
+    public function test_superadmin_puede_degradar_a_otro_superadmin(): void
+    {
+        $superadmin = User::factory()->create(['rol' => 'superadmin']);
+        $otro       = User::factory()->create(['rol' => 'superadmin']);
+
+        $this->actingAs($superadmin)
+            ->put("/admin/roles/{$otro->id}", ['rol' => 'usuario'])
+            ->assertSessionHas('success');
+
+        $this->assertEquals('usuario', $otro->fresh()->rol);
+    }
+
+    public function test_el_panel_no_ofrece_la_opcion_superadmin_a_un_admin(): void
+    {
+        $admin = User::factory()->create(['rol' => 'admin']);
+        User::factory()->create(['rol' => 'usuario']);
+
+        $this->actingAs($admin)
+            ->get('/admin/roles')
+            ->assertOk()
+            ->assertDontSee('value="superadmin"', false);
+    }
+
+    public function test_el_panel_ofrece_la_opcion_superadmin_a_un_superadmin(): void
+    {
+        $superadmin = User::factory()->create(['rol' => 'superadmin']);
+        User::factory()->create(['rol' => 'usuario']);
+
+        $this->actingAs($superadmin)
+            ->get('/admin/roles')
+            ->assertOk()
+            ->assertSee('value="superadmin"', false);
+    }
 }
