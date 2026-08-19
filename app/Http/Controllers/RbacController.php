@@ -21,14 +21,19 @@ class RbacController extends Controller
         ]);
 
         $usuario = User::findOrFail($id);
+        $actor   = $request->user();
 
         // No permitir cambiar el propio rol
-        if ($usuario->id === auth()->id()) {
+        if ($usuario->id === $actor->id) {
             return back()->with('error', 'No puedes cambiar tu propio rol.');
         }
 
-        $usuario->rol = $request->rol;
-        $usuario->save();
+        // Solo un superadmin puede otorgar o retirar el rol superadmin (issue #117)
+        if (! $actor->puedeAsignarRol($request->rol, $usuario)) {
+            return back()->with('error', 'Solo un superadministrador puede asignar o retirar el rol superadmin.');
+        }
+
+        $usuario->cambiarRol($request->rol);
 
         return back()->with('success', "Rol de {$usuario->name} actualizado a {$usuario->rol}.");
     }

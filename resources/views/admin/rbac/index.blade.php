@@ -148,7 +148,7 @@
                                 </td>
 
                                 <td class="px-6 py-4">
-                                    @if($usuario->id !== auth()->id())
+                                    @if(auth()->user()->puedeGestionarRolDe($usuario))
                                         <form method="POST" action="{{ route('admin.rbac.actualizar', $usuario->id) }}"
                                               class="flex items-center gap-2">
                                             @csrf
@@ -157,7 +157,7 @@
                                                     class="bg-white/5 border border-white/10 text-white text-xs rounded-lg px-3 py-1.5
                                                            focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 outline-none
                                                            transition-all duration-200 cursor-pointer">
-                                                @foreach(App\Models\User::rolesDisponibles() as $rol)
+                                                @foreach(App\Models\User::rolesAsignablesPor(auth()->user()) as $rol)
                                                     <option value="{{ $rol }}" {{ $usuario->rol === $rol ? 'selected' : '' }}
                                                             class="bg-[#13131f]">
                                                         {{ $rol }}
@@ -171,8 +171,17 @@
                                                 Guardar
                                             </button>
                                         </form>
-                                    @else
+                                    @elseif($usuario->id === auth()->id())
                                         <span class="text-white/20 text-xs">—</span>
+                                    @else
+                                        <span class="inline-flex items-center gap-1.5 text-white/30 text-xs"
+                                              title="Solo un superadministrador puede modificar a otro superadministrador">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                            </svg>
+                                            Protegido
+                                        </span>
                                     @endif
                                 </td>
                             </tr>
