@@ -12,6 +12,8 @@ export default defineConfig({
     ],
     test: {
         environment: 'jsdom',
+        // Los specs de tests/e2e son de Playwright; los ejecuta `npx playwright test`.
+        include: ['resources/js/**/*.test.js'],
         coverage: {
             provider: 'v8',
             reporter: ['text', 'html'],
