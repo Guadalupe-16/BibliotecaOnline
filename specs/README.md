@@ -28,5 +28,8 @@ Reglas del proyecto: [`.specify/memory/constitution.md`](../.specify/memory/cons
 
 ## Specs existentes
 
-Todavía no hay specs en `develop`. Las primeras están planeadas: `001-pruebas-e2e-playwright`,
-`002-guia-interactiva-driverjs` y `003-infraestructura-cicd`.
+| Spec | Issue | Estado |
+|---|---|---|
+| [`001-pruebas-e2e-playwright`](001-pruebas-e2e-playwright/spec.md) | #140 | Especificada; implementación de pruebas PLANEADO |
+| `002-guia-interactiva-driverjs` | #137 | PLANEADO |
+| [`003-infraestructura-cicd`](003-infraestructura-cicd/spec.md) | #138 | IMPLEMENTADO (PR #146) |
