@@ -144,20 +144,24 @@ Disparadores: `push` y `pull_request` sobre `main` y `develop`.
 |---|---|
 | `lint-format` (ESLint + Prettier) | Node 20 → `npm ci` → `npm run lint` → `npm run format:check` |
 | `php-tests` (PHPUnit) | PHP 8.2 + xdebug → `composer install` → `.env` de ejemplo → `key:generate` → `migrate --force` (SQLite en memoria) → `php artisan test` |
+| `e2e-playwright` (E2E Playwright) — **IMPLEMENTADO** (issue #138) | PHP 8.2 + Node 20 → dependencias → `.env` + `key:generate` → SQLite en archivo con `migrate --seed` → `npm run build` → `php artisan serve` + espera a `/up` → Chromium → `npx playwright test` → reporte como artefacto |
+
+Detalle y evidencia del job E2E: [`specs/003-infraestructura-cicd/`](../../specs/003-infraestructura-cicd/research.md).
 
 No cubierto actualmente por CI:
 
-- Pruebas unitarias JS con Vitest (`npm test`) — **PLANEADO**.
-- Pruebas E2E con Playwright (`tests/e2e/`) — **PLANEADO** (issue #138).
+- Pruebas unitarias JS con Vitest (`npm test`) — **PLANEADO**, aunque la constitución lo exige como
+  puerta de calidad.
 
 ---
 
 ## 6. Relación con SDD (Spec-Driven Development)
 
-**PLANEADO** — depende del issue #136 (adopción de GitHub Spec Kit y constitución). Hoy no existen los
-directorios `.specify/` ni `specs/`.
+**IMPLEMENTADO** — GitHub Spec Kit 1.0.12 se adoptó en el PR #144 (issue #136): configuración en
+`.specify/`, constitución en `.specify/memory/constitution.md`, specs en `specs/NNN-nombre/` y guía en
+`docs/sdd/sdd-implementation.md`. Primera spec: `specs/003-infraestructura-cicd/` (issue #138).
 
-Flujo previsto una vez adoptado:
+Flujo:
 
 1. El issue describe el *qué* y los criterios de aceptación.
 2. Se escribe o actualiza la spec (`specs/NNN-nombre/`) antes del código.
@@ -209,12 +213,12 @@ gitGraph
 
 ```mermaid
 flowchart LR
-    A["Issue<br/>(plantilla + tablero)"] --> B["Spec<br/>(PLANEADO, #136)"]
+    A["Issue<br/>(plantilla + tablero)"] --> B["Spec<br/>specs/NNN-nombre"]
     B --> C["Rama<br/>tipo/N-descripcion"]
     C --> D["Commits<br/>hook prepare-commit-msg"]
     D --> E["Pruebas locales<br/>php artisan test / npm test"]
     E --> F["PR a develop<br/>Closes #N"]
-    F --> G{"CI<br/>lint + PHPUnit"}
+    F --> G{"CI<br/>lint + PHPUnit + E2E"}
     G -- falla --> D
     G -- pasa --> H{"Code review<br/>otro integrante"}
     H -- cambios --> D

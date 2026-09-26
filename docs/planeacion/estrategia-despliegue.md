@@ -12,7 +12,7 @@ Etiquetas usadas: **IMPLEMENTADO** (existe hoy), **VALIDADO** (existe y se compr
 ## 1. Estado actual
 
 **No existe hosting ni despliegue.** El repositorio no contiene workflows de deploy, archivos de
-infraestructura (Dockerfile, devcontainer, configuración de proveedor) ni ambientes de GitHub. La
+infraestructura de hosting (configuración de proveedor, Terraform aplicado) ni ambientes de GitHub. La
 aplicación solo se ejecuta en las máquinas de los integrantes.
 
 | Aspecto | Situación real | Estado |
@@ -21,12 +21,13 @@ aplicación solo se ejecuta en las máquinas de los integrantes.
 | Ejecución local | `composer dev` (levanta `php artisan serve`, `queue:listen`, `pail` y `vite` en paralelo) o `php artisan serve` + `npm run dev` | **IMPLEMENTADO** |
 | Base de datos local | `.env.example` usa `DB_CONNECTION=sqlite`; algunos integrantes usan MySQL | **IMPLEMENTADO** |
 | Colas | Se usan colas de Laravel (ej. registro de activity logs, PR #132) | **IMPLEMENTADO** |
-| CI | Lint + PHPUnit en cada push/PR a `main` y `develop` | **IMPLEMENTADO** |
+| CI | Lint + PHPUnit + E2E Playwright en cada push/PR a `main` y `develop` (E2E agregado en #138) | **IMPLEMENTADO** |
 | Respaldos | `scripts/backup.sh` y `scripts/restore.sh` (mysqldump sobre la BD del `.env`) | **IMPLEMENTADO** |
 | Health check | Ruta `/up` registrada en `bootstrap/app.php` (`health: '/up'`) | **IMPLEMENTADO** |
 | Versiones | Tags `v1.0.0` (en `main`) y `v2.0.0` (solo en `develop`) | **IMPLEMENTADO** |
 | Hosting / Staging / Producción | No existen | — |
-| Devcontainer | No existe (issue #138) | **PLANEADO** |
+| Devcontainer | `.devcontainer/` con PHP 8.2 + Node 20 + SQLite + Chromium (issue #138); no probado aún en Codespaces | **IMPLEMENTADO** (no validado) |
+| Infraestructura como código | Solo diseño: [`propuesta-terraform.md`](propuesta-terraform.md) | **PLANEADO** |
 
 Todo lo que sigue a partir de la sección 2 es **PLANEADO**.
 
@@ -52,7 +53,7 @@ Reglas:
 ```mermaid
 flowchart LR
     A["Rama feature"] --> B["PR a develop"]
-    B --> C{"CI<br/>lint + PHPUnit<br/>(+ Vitest y E2E, #138)"}
+    B --> C{"CI<br/>lint + PHPUnit + E2E<br/>(+ Vitest, PLANEADO)"}
     C -- falla --> A
     C -- pasa + review --> D["Merge a develop"]
     D --> E["Deploy automático<br/>a Staging"]
