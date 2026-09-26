@@ -89,7 +89,7 @@ del CI (SC-001) y los escenarios de `quickstart.md`.
 - [X] T017 [P] Actualizar docs/planeacion/estrategia-despliegue.md: CI incluye E2E; devcontainer IMPLEMENTADO (no validado); enlace a propuesta-terraform.md
 - [X] T018 [P] Agregar `playwright-report/` y `test-results/` a .gitignore si no están
 - [X] T019 Ejecutar `/speckit-analyze` y guardar el informe en specs/003-infraestructura-cicd/analysis.md
-- [ ] T020 Tras el push, registrar el enlace, el resultado y la duración del job E2E (SC-004: < 10 min) del run real de GitHub Actions en specs/003-infraestructura-cicd/analysis.md y en la descripción del PR (SC-001)
+- [X] T020 Tras el push, registrar el enlace, el resultado y la duración del job E2E (SC-004: < 10 min) del run real de GitHub Actions en specs/003-infraestructura-cicd/analysis.md y en la descripción del PR (SC-001)
 
 ---
 
