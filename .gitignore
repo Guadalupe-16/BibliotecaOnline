@@ -26,3 +26,6 @@ Thumbs.db
 /coverage-report
 /playwright-report
 /test-results
+
+# Claude Code: configuracion local de cada persona (Spec Kit si versiona .claude/skills)
+/.claude/settings.local.json
