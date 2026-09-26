@@ -65,3 +65,82 @@ jobs:
         env:
           DB_CONNECTION: sqlite
           DB_DATABASE: ":memory:"
+
+  e2e-playwright:
+    name: E2E Playwright
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: mbstring, sqlite3, pdo_sqlite
+          coverage: none
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias PHP
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Instalar dependencias JS
+        run: npm ci
+
+      - name: Preparar .env y clave de aplicacion
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      # SQLite en archivo: el servidor y las migraciones son procesos distintos
+      - name: Crear base de datos SQLite y ejecutar migraciones con seeders
+        run: |
+          touch database/database.sqlite
+          php artisan migrate --seed --force
+
+      # Obligatorio: sin assets compilados fallan 3 pruebas E2E
+      - name: Compilar assets
+        run: npm run build
+
+      - name: Levantar Laravel y esperar health check /up
+        run: |
+          php artisan serve --host=127.0.0.1 --port=8000 > storage/logs/serve.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8000/up > /dev/null; then
+              echo "Laravel respondio en /up tras ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "Laravel no respondio en /up despues de 60s"
+          cat storage/logs/serve.log
+          exit 1
+
+      - name: Instalar Chromium para Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Ejecutar pruebas E2E
+        run: npx playwright test
+
+      - name: Publicar reporte de Playwright
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
+
+      - name: Publicar log del servidor
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: laravel-server-log
+          path: storage/logs/serve.log
+          retention-days: 14
