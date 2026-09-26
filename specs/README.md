@@ -28,5 +28,9 @@ Reglas del proyecto: [`.specify/memory/constitution.md`](../.specify/memory/cons
 
 ## Specs existentes
 
-Todavía no hay specs en `develop`. Las primeras están planeadas: `001-pruebas-e2e-playwright`,
-`002-guia-interactiva-driverjs` y `003-infraestructura-cicd`.
+| Spec | Issue | Estado |
+|---|---|---|
+| [`002-guia-interactiva-driverjs`](002-guia-interactiva-driverjs/spec.md) | #137 | Especificada y planeada (spec, plan, research, data-model, contracts, quickstart, tasks, analysis). **PLANEADO**: Driver.js no está instalado ni implementado |
+
+Están planeadas, pero todavía no están en `develop`: `001-pruebas-e2e-playwright` (#140) y
+`003-infraestructura-cicd` (#138).
