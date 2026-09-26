@@ -26,11 +26,11 @@ Informe de consistencia entre `spec.md`, `plan.md` y `tasks.md`, contra la const
 | FR-008 – FR-011 | T011 – T013 | IMPLEMENTADO, no validado en Codespaces |
 | FR-012 – FR-013 | T014 – T015 | IMPLEMENTADO (propuesta PLANEADO) |
 | FR-014 – FR-015 | T013, T016, T017 | IMPLEMENTADO |
-| SC-001 – SC-004 | T020 | Pendiente del run real en GitHub Actions |
+| SC-001 – SC-004 | T020 | VALIDADO (run 36205499377) |
 | SC-005 | T011 – T013 | No validado (sin Docker ni Codespace) |
 | SC-006 | T015 | VALIDADO (`git ls-files` sin archivos de Terraform) |
 
-**Métricas**: 15 FR + 6 SC · 20 tareas (19 hechas, T020 pendiente) · cobertura 100 % tras
+**Métricas**: 15 FR + 6 SC · 20 tareas (20 hechas) · cobertura 100 % tras
 resolver E1 · 0 ambigüedades · 0 duplicados · 2 críticos, justificados.
 
 ## Verificaciones realizadas
@@ -44,12 +44,14 @@ resolver E1 · 0 ambigüedades · 0 duplicados · 2 críticos, justificados.
 | Sintaxis de `.devcontainer/devcontainer.json` (JSON) y `post-create.sh` (`bash -n`) | OK | VALIDADO |
 | Tag `1-8.2-bookworm` en `mcr.microsoft.com/devcontainers/php` | Existe | VALIDADO |
 | Creación del devcontainer en Codespaces o Docker | No realizada (sin Docker en la máquina de trabajo) | **No validado** |
-| Run real en GitHub Actions | Pendiente (T020) | Pendiente |
+| Run real en GitHub Actions | 3 checks en verde, E2E en 1 min 9 s | VALIDADO |
 
-## Run real en GitHub Actions (T020)
+## Run real en GitHub Actions (T020) — VALIDADO
 
-> Completar tras el push:
->
-> - Enlace del run: _pendiente_
-> - `ESLint + Prettier`: _pendiente_ · `PHPUnit Tests`: _pendiente_ · `E2E Playwright`: _pendiente_
-> - Duración del job E2E: _pendiente_ (SC-004: < 10 min)
+- Enlace del run (PR #146, commit `dfcccd4`, 2026-09-26):
+  https://github.com/Guadalupe-16/BibliotecaOnline/actions/runs/36205499377
+- `ESLint + Prettier`: éxito (11 s) · `PHPUnit Tests`: éxito (22 s) · `E2E Playwright`: éxito (1 min 9 s)
+- Artefacto publicado: `playwright-report`
+- SC-004 (< 10 min): cumplido
+- Run del push a `develop` tras el merge (`60affd9`): éxito —
+  https://github.com/Guadalupe-16/BibliotecaOnline/actions/runs/36205506706
