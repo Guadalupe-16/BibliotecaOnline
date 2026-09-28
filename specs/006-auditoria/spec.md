@@ -1,10 +1,10 @@
 # Feature Specification: Formalizar y mejorar el visor de auditoría
 
-**Feature Branch**: Por definir (se asignará `tipo/NNN-descripcion` al crear el Issue de implementación)
+**Feature Branch**: `feat/167-visor-auditoria` (implementación, Issue #167)
 
 **Created**: 2026-09-27
 
-**Status**: Draft (planeación — Issue #164)
+**Status**: Implementado (Issue #167) — planeada en el Issue #164
 
 **Input**: Actividad 3.1: diseñar con SDD el módulo de auditoría de BibliotecaOnline. El sistema **ya
 existe parcialmente** (`app/Models/ActivityLog.php`, `App\Jobs\LogActivityJob`,
