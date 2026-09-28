@@ -29,3 +29,7 @@ Thumbs.db
 
 # Claude Code: configuracion local de cada persona (Spec Kit si versiona .claude/skills)
 /.claude/settings.local.json
+
+# SonarQube (Issue #153)
+/.scannerwork
+/coverage
