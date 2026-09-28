@@ -12,6 +12,10 @@ use Illuminate\Support\Str;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use App\Models\ActivityLog;
+use App\Services\Metricas;
+use Prometheus\CollectorRegistry;
+use Prometheus\Storage\APC;
+use Prometheus\Storage\InMemory;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -21,7 +25,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Metricas de Prometheus (Issue #165). APCu comparte los contadores entre procesos de Apache;
+        // sin APCu (desarrollo, pruebas) se usa memoria de la peticion.
+        $this->app->singleton(CollectorRegistry::class, function () {
+            $almacen = config('metricas.storage') === 'apcu' && extension_loaded('apcu')
+                ? new APC()
+                : new InMemory();
+
+            return new CollectorRegistry($almacen, false);
+        });
+        $this->app->singleton(Metricas::class);
     }
 
     /**
