@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActivityLog;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,13 @@ class RbacController extends Controller
             return back()->with('error', 'Solo un superadministrador puede asignar o retirar el rol superadmin.');
         }
 
+        $rolAnterior = $usuario->rol;
         $usuario->cambiarRol($request->rol);
+
+        ActivityLog::registrar(
+            'rbac_cambio_rol',
+            "El usuario {$actor->name} cambió el rol de {$usuario->name} de {$rolAnterior} a {$usuario->rol} (panel de roles)."
+        );
 
         return back()->with('success', "Rol de {$usuario->name} actualizado a {$usuario->rol}.");
     }
