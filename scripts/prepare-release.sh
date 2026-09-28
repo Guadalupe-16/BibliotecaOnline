@@ -56,6 +56,14 @@ else
     echo "==> $ENV_FILE ya existe; se conserva (misma APP_KEY y credenciales entre liberaciones)"
 fi
 
+# Monitoreo (Issue #165): se agregan si faltan, tambien en un .env.release anterior
+agregar_si_falta() {  # agregar_si_falta CLAVE valor
+    grep -qE "^$1=" "$ENV_FILE" || echo "$1=$2" >> "$ENV_FILE"
+}
+agregar_si_falta METRICS_STORAGE apcu
+agregar_si_falta METRICS_TOKEN "$(aleatorio 24)"
+agregar_si_falta GRAFANA_ADMIN_PASSWORD "$(aleatorio 12)"
+
 if [ "${SKIP_BUILD:-false}" = "true" ]; then
     # En el pipeline la imagen ya viene construida del job anterior (docker load)
     echo "==> SKIP_BUILD=true: solo se prepara el entorno; se usa la imagen existente"

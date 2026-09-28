@@ -38,3 +38,6 @@ Thumbs.db
 /.env.release
 /dist
 /.release
+
+# Monitoreo (Issue #165): token de /metrics generado desde .env.release
+/monitoring/.secretos

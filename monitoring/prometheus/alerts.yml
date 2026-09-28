@@ -1,0 +1,68 @@
+# Reglas de alerta de BibliotecaOnline (Issue #165, spec 004 FR-005).
+# "origen" indica si el umbral viene de la actividad o es decision del equipo.
+groups:
+  - name: bibliotecaonline
+    rules:
+      - alert: BibliotecaOnlineNoDisponible
+        expr: probe_success{job="disponibilidad"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          origen: equipo
+        annotations:
+          summary: "BibliotecaOnline no responde en /up"
+          description: "El health check /up falla desde hace más de 1 minuto."
+
+      - alert: BibliotecaOnlineSinMetricas
+        expr: up{job="bibliotecaonline"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          origen: equipo
+        annotations:
+          summary: "Prometheus no puede leer /metrics"
+          description: "El scrape de {{ $labels.instance }} falla desde hace más de 1 minuto (app caída o token incorrecto)."
+
+      - alert: BibliotecaOnlineBaseDeDatosCaida
+        expr: bibliotecaonline_database_up == 0
+        for: 1m
+        labels:
+          severity: critical
+          origen: equipo
+        annotations:
+          summary: "La aplicación no puede conectarse a la base de datos"
+          description: "bibliotecaonline_database_up vale 0 desde hace más de 1 minuto."
+
+      - alert: BibliotecaOnlineErrores5xx
+        expr: |
+          sum(rate(bibliotecaonline_http_errors_total{clase="5xx"}[5m]))
+            / sum(rate(bibliotecaonline_http_requests_total[5m])) > 0.05
+        for: 2m
+        labels:
+          severity: warning
+          origen: equipo
+        annotations:
+          summary: "Más del 5 % de las respuestas son errores 5xx"
+          description: "Tasa de 5xx: {{ $value | humanizePercentage }} (umbral del equipo: 5 %)."
+
+      - alert: BibliotecaOnlineLatenciaP95
+        expr: |
+          histogram_quantile(0.95,
+            sum by (le) (rate(bibliotecaonline_http_request_duration_seconds_bucket[5m]))) > 5
+        for: 5m
+        labels:
+          severity: warning
+          origen: actividad
+        annotations:
+          summary: "p95 de respuesta por encima de 5 s (NS-1)"
+          description: "p95 = {{ $value | humanizeDuration }}; el nivel de servicio de la actividad es p95 < 5000 ms."
+
+      - alert: BibliotecaOnlineTrabajosFallidos
+        expr: bibliotecaonline_queue_jobs_failed > 0
+        for: 5m
+        labels:
+          severity: warning
+          origen: equipo
+        annotations:
+          summary: "Hay trabajos de cola fallidos"
+          description: "{{ $value }} trabajo(s) en failed_jobs. Revisar con php artisan queue:failed."

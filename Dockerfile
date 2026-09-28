@@ -34,6 +34,8 @@ LABEL org.opencontainers.image.title="BibliotecaOnline" \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends curl \
     && docker-php-ext-install pdo_mysql opcache \
+    && pecl install apcu \
+    && docker-php-ext-enable apcu \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 
