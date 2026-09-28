@@ -27,10 +27,10 @@ de Grafana se validan por inspección manual (no hay framework de pruebas para P
 
 **Purpose**: Elegir y validar la librería de instrumentación antes de escribir código de producto
 
-- [ ] T001 Evaluar y elegir la librería de cliente Prometheus para PHP/Laravel (candidatas en
+- [X] T001 Evaluar y elegir la librería de cliente Prometheus para PHP/Laravel (candidatas en
   research.md §2), confirmar compatibilidad con PHP 8.2 y Laravel 12, y registrar la decisión con
   versión exacta en un `research.md` de la implementación
-- [ ] T002 Decidir el *storage adapter* (APCu vs Redis) para compartir contadores entre procesos de
+- [X] T002 Decidir el *storage adapter* (APCu vs Redis) para compartir contadores entre procesos de
   Apache y documentar la decisión (ninguno de los dos está instalado hoy; verificar disponibilidad de
   la extensión APCu en la imagen `php:8.2-apache` del Dockerfile)
 
@@ -40,14 +40,14 @@ de Grafana se validan por inspección manual (no hay framework de pruebas para P
 
 **Purpose**: Instrumentación mínima que las historias 1 y 2 necesitan
 
-- [ ] T003 Agregar la dependencia elegida en T001 a `composer.json` y `composer.lock`
-- [ ] T004 Crear `app/Http/Middleware/InstrumentarMetricas.php`: registra
+- [X] T003 Agregar la dependencia elegida en T001 a `composer.json` y `composer.lock`
+- [X] T004 Crear `app/Http/Middleware/InstrumentarMetricas.php`: registra
   `http_requests_total{method,route,status}` y observa `http_request_duration_seconds{route}` en
   `terminate()`, excluyendo las rutas `/metrics` y `/up`
-- [ ] T005 Registrar el middleware en `bootstrap/app.php` para el grupo `web`
-- [ ] T006 [P] Crear la ruta `GET /metrics` en `routes/web.php`, fuera de cualquier grupo `auth`,
+- [X] T005 Registrar el middleware en `bootstrap/app.php` para el grupo `web`
+- [X] T006 [P] Crear la ruta `GET /metrics` en `routes/web.php`, fuera de cualquier grupo `auth`,
   devolviendo el formato de texto de Prometheus
-- [ ] T007 [P] Escribir el Feature test que verifica que `GET /metrics` responde `200` con
+- [X] T007 [P] Escribir el Feature test que verifica que `GET /metrics` responde `200` con
   `Content-Type` de Prometheus y contiene los nombres de métrica de spec.md FR-002
 
 **Checkpoint**: `/metrics` responde con contadores/histogramas reales tras tráfico de prueba
@@ -60,14 +60,14 @@ de Grafana se validan por inspección manual (no hay framework de pruebas para P
 
 **Independent Test**: abrir el dashboard con tráfico real y ver los 5 paneles con datos
 
-- [ ] T008 [US1] Crear `monitoring/prometheus.yml` con el `scrape_config` apuntando a `/metrics` del
+- [X] T008 [US1] Crear `monitoring/prometheus.yml` con el `scrape_config` apuntando a `/metrics` del
   contenedor `app`
-- [ ] T009 [US1] Agregar contador de trabajos de cola procesados/fallidos: instrumentar los eventos
+- [X] T009 [US1] Agregar contador de trabajos de cola procesados/fallidos: instrumentar los eventos
   `JobProcessed` y `JobFailed` de Laravel (o leer `jobs`/`failed_jobs` con un comando programado), según
   lo que T001 haga más simple
-- [ ] T010 [US1] Crear `monitoring/grafana/dashboard-bibliotecaonline.json` con los paneles: solicitudes
+- [X] T010 [US1] Crear `monitoring/grafana/dashboard-bibliotecaonline.json` con los paneles: solicitudes
   por minuto, errores 4xx/5xx, latencia promedio, p95 (`histogram_quantile`), disponibilidad (`up`)
-- [ ] T011 [US1] Documentar en `docs/monitoreo/` cómo levantar Prometheus + Grafana localmente para
+- [X] T011 [US1] Documentar en `docs/monitoreo/` cómo levantar Prometheus + Grafana localmente para
   validar el dashboard (servicios adicionales, no en `docker-compose.release.yml` todavía; ver plan.md
   Riesgos)
 
@@ -81,12 +81,12 @@ de Grafana se validan por inspección manual (no hay framework de pruebas para P
 
 **Independent Test**: detener el contenedor `app` o forzar 5xx y ver la alerta en estado `firing`
 
-- [ ] T012 [US2] Crear `monitoring/alerts.yml` con la regla de disponibilidad (`up == 0` durante N
+- [X] T012 [US2] Crear `monitoring/alerts.yml` con la regla de disponibilidad (`up == 0` durante N
   minutos) y la regla de latencia basada en el umbral NS-1 (`p95 < 5000 ms`,
   `docs/cicd/pipeline-liberacion-despliegue.md` §5)
-- [ ] T013 [US2] Definir y documentar el umbral de tasa de error 5xx como decisión del equipo (spec.md
+- [X] T013 [US2] Definir y documentar el umbral de tasa de error 5xx como decisión del equipo (spec.md
   FR-005) y agregarlo a `monitoring/alerts.yml`
-- [ ] T014 [US2] Validar manualmente cada alerta: simular la condición y registrar el resultado (estado
+- [X] T014 [US2] Validar manualmente cada alerta: simular la condición y registrar el resultado (estado
   `firing` alcanzado) en un `quickstart.md` de la implementación
 
 **Checkpoint**: las 2–3 alertas definidas se disparan ante su condición simulada
@@ -100,9 +100,9 @@ de Grafana se validan por inspección manual (no hay framework de pruebas para P
 **Independent Test**: inspeccionar la salida de `/metrics` y la configuración de red del entorno de
 liberación
 
-- [ ] T015 [US3] Revisar cada métrica instrumentada en T004/T009 y confirmar que ningún label usa IP,
+- [X] T015 [US3] Revisar cada métrica instrumentada en T004/T009 y confirmar que ningún label usa IP,
   user-agent completo o ID de usuario (solo ruta/método/estado)
-- [ ] T016 [US3] Decidir y documentar cómo se restringe el acceso a `/metrics` en el entorno de
+- [X] T016 [US3] Decidir y documentar cómo se restringe el acceso a `/metrics` en el entorno de
   liberación (no publicar el puerto, o autenticación a nivel de proxy) antes de agregar servicios de
   monitoreo a `docker-compose.release.yml`
 
@@ -125,3 +125,16 @@ liberación
 2. US2 (alertas) y US3 (seguridad) se agregan en el mismo PR de implementación, sin bloquear el MVP.
 3. El stack de Prometheus/Grafana como servicios permanentes de `docker-compose.release.yml` queda
    fuera de esta primera implementación (ver plan.md Riesgos); se valida localmente primero.
+
+---
+
+## Registro de implementación (Issue #165, rama `feat/165-monitoreo-prometheus-grafana`)
+
+| Tareas | Decisión / resultado |
+|---|---|
+| T001–T002 | `promphp/prometheus_client_php` 2.15.1 con **APCu** (memoria compartida entre procesos de Apache). Sin APCu (desarrollo/pruebas) → `InMemory`. Redis descartado por agregar un servicio; archivo descartado por no ser seguro entre procesos |
+| T003–T007 | Dependencia agregada sin actualizar otros paquetes; `InstrumentarMetricas` (global, en `terminate()`); `GET /metrics` registrado **fuera del grupo `web`** (sin sesión); `MetricasTest` (8 pruebas) |
+| T008–T011 | `monitoring/prometheus/prometheus.yml` (+ blackbox para `/up`); métricas de cola leídas de `jobs`/`failed_jobs` en cada scrape (el worker CLI no comparte APCu); dashboard de 13 paneles provisionado; guía `docs/monitoreo/monitoreo.md` |
+| T012–T014 | 6 reglas en `alerts.yml` (`promtool`: SUCCESS). Umbral 5xx = 5 % durante 2 min (**equipo**); p95 > 5 s (**NS-1, actividad**). Validación: MySQL detenido → `BaseDeDatosCaida` y `Errores5xx` en *firing*, resueltas al restaurar |
+| T015–T016 | Labels: solo `method`, `route` (patrón), `status`, `clase`; prueba automatizada sin IP/usuario. `/metrics` exige token Bearer (`METRICS_TOKEN` aleatorio en `.env.release`); 403 en producción sin token |
+| Verificación | `scripts/monitoring.sh verify`: 7/7. PHPUnit completo en verde |
