@@ -1,0 +1,54 @@
+# Entorno de despliegue de BibliotecaOnline (Issue #156).
+# No se usa directamente: lo manejan scripts/deploy.sh, scripts/test-release.sh y scripts/rollback.sh,
+# que le pasan --env-file .env.release (generado por scripts/prepare-release.sh, nunca versionado).
+#
+# Servicios: app (Apache + PHP 8.2), worker (cola de Laravel) y db (MySQL 8.4).
+
+name: bibliotecaonline-release
+
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  app:
+    image: bibliotecaonline:${RELEASE_VERSION:?Define RELEASE_VERSION (lo hace scripts/deploy.sh)}
+    env_file: .env.release
+    environment:
+      RUN_MIGRATIONS: "true"
+    ports:
+      - "${RELEASE_PORT:-8090}:80"
+    volumes:
+      - app_storage:/var/www/html/storage/app
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  worker:
+    image: bibliotecaonline:${RELEASE_VERSION:?Define RELEASE_VERSION (lo hace scripts/deploy.sh)}
+    env_file: .env.release
+    environment:
+      RUN_MIGRATIONS: "false"
+    command: ["php", "artisan", "queue:work", "--tries=3", "--sleep=3", "--max-time=3600"]
+    healthcheck:
+      disable: true
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  app_storage:

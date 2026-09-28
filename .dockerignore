@@ -1,0 +1,32 @@
+# Contexto de la imagen de liberacion (Issue #156). Se excluye lo que se reconstruye dentro
+# de la imagen (vendor, assets) y todo lo que no debe viajar a produccion.
+.git
+.github
+.devcontainer
+.specify
+.claude
+.scannerwork
+node_modules
+vendor
+public/build
+public/hot
+public/storage
+storage/logs/*
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/backups
+bootstrap/cache/*.php
+database/database.sqlite
+.env
+.env.*
+!.env.example
+coverage
+playwright-report
+test-results
+playwright
+dist
+.release
+docs
+specs
+sonarqube
