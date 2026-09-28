@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Jobs\ImportarLibroJob;
 use App\Models\Categoria;
 use App\Models\Libro;
 use App\Models\User;
@@ -122,6 +123,9 @@ class OpenLibraryControllerTest extends TestCase
         ]);
 
         $respuesta->assertStatus(403);
-        Queue::assertNothingPushed();
+        // No se dispara el job de importación (el de trazabilidad técnica,
+        // App\Jobs\LogRequestTraceJob, sí se despacha para toda petición web
+        // — specs/005-trazabilidad/ — y no es lo que esta prueba verifica).
+        Queue::assertNotPushed(ImportarLibroJob::class);
     }
 }

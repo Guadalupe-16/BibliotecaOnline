@@ -83,6 +83,11 @@ de aprobar el plan de implementación.
 
 - **Petición que nunca llega a `terminate()`** (p. ej. el proceso PHP muere a medio camino): esa traza
   se pierde; se documenta como limitación aceptada, no se agrega un mecanismo de journaling adicional.
+- **URL que no coincide con ninguna ruta definida** (404 "ruta no encontrada"): nunca entra al pipeline
+  de middleware, así que no genera traza — a diferencia de una ruta que sí existe mediante *route model
+  binding* pero cuyo recurso no existe (p. ej. `/libros/999999`), que sí se traza con `status_http =
+  404` (verificado en la implementación, Issue #166:
+  `tests/Feature/TrazabilidadMiddlewareTest.php::test_status_http_se_registra_para_un_recurso_inexistente`).
 - **Usuario anónimo**: `user_id` queda `null`; el visor debe poder filtrar igualmente por ese caso.
 - **Traza sin `error_referencia`** (petición exitosa): el campo queda `null`; el visor no debe mostrarlo
   como si fuera un error.
