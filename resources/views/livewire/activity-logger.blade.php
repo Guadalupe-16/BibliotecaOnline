@@ -1,16 +1,29 @@
 <div>
     {{-- Filtros --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+        <label for="filtro-usuario" class="sr-only">Filtrar por usuario</label>
         <input
+            id="filtro-usuario"
             wire:model.live.debounce.400ms="filtroUsuario"
             type="text"
             placeholder="Filtrar por usuario..."
             class="bg-[#13151f] border border-[#2e3250] rounded-lg px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
         >
+        <label for="filtro-accion" class="sr-only">Filtrar por acción</label>
         <input
+            id="filtro-accion"
             wire:model.live.debounce.400ms="filtroAccion"
             type="text"
             placeholder="Filtrar por acción..."
+            class="bg-[#13151f] border border-[#2e3250] rounded-lg px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
+        >
+        <label for="filtro-ip" class="sr-only">Filtrar por dirección IP</label>
+        <input
+            id="filtro-ip"
+            wire:model.live.debounce.400ms="filtroIp"
+            type="text"
+            inputmode="decimal"
+            placeholder="Filtrar por IP..."
             class="bg-[#13151f] border border-[#2e3250] rounded-lg px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
         >
         {{-- Datepicker Desde --}}
@@ -58,7 +71,7 @@
             x-on:click.outside="open = false"
             class="relative"
         >
-            <button type="button" x-on:click="open = !open"
+            <button type="button" x-on:click="open = !open" aria-label="Fecha desde"
                 class="w-full flex items-center gap-2 bg-[#13151f] border border-[#2e3250] rounded-lg px-3 py-2 text-sm transition-colors hover:border-indigo-500 focus:outline-none"
                 :class="value ? 'text-white' : 'text-gray-500'"
             >
@@ -151,7 +164,7 @@
             x-on:click.outside="open = false"
             class="relative"
         >
-            <button type="button" x-on:click="open = !open"
+            <button type="button" x-on:click="open = !open" aria-label="Fecha hasta"
                 class="w-full flex items-center gap-2 bg-[#13151f] border border-[#2e3250] rounded-lg px-3 py-2 text-sm transition-colors hover:border-indigo-500 focus:outline-none"
                 :class="value ? 'text-white' : 'text-gray-500'"
             >
@@ -200,7 +213,7 @@
         </div>
     </div>
 
-    @if($filtroUsuario || $filtroAccion || $fechaDesde || $fechaHasta)
+    @if($filtroUsuario || $filtroAccion || $filtroIp || $fechaDesde || $fechaHasta)
         <div class="mb-4">
             <button wire:click="limpiarFiltros" class="text-xs text-indigo-400 hover:text-indigo-300 transition-colors">
                 ✕ Limpiar filtros
@@ -230,6 +243,9 @@
                                 @elseif(str_contains($log->accion, 'logout')) bg-red-500/20 text-red-400
                                 @elseif(str_contains($log->accion, 'busqueda')) bg-blue-500/20 text-blue-400
                                 @elseif(str_contains($log->accion, 'prestamo')) bg-yellow-500/20 text-yellow-400
+                                @elseif(str_contains($log->accion, 'cambio_rol')) bg-purple-500/20 text-purple-400
+                                @elseif(str_contains($log->accion, 'eliminado')) bg-red-500/20 text-red-400
+                                @elseif(str_contains($log->accion, 'toggle_estado') || str_contains($log->accion, 'actualizado')) bg-amber-500/20 text-amber-400
                                 @else bg-gray-500/20 text-gray-400 @endif">
                                 {{ $log->accion }}
                             </span>

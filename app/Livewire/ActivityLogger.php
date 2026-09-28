@@ -13,11 +13,13 @@ class ActivityLogger extends Component
 
     public string $filtroUsuario = '';
     public string $filtroAccion = '';
+    public string $filtroIp = '';
     public string $fechaDesde = '';
     public string $fechaHasta = '';
 
     public function updatingFiltroUsuario(): void { $this->resetPage(); }
     public function updatingFiltroAccion(): void { $this->resetPage(); }
+    public function updatingFiltroIp(): void { $this->resetPage(); }
     public function updatingFechaDesde(): void { $this->resetPage(); }
     public function updatingFechaHasta(): void { $this->resetPage(); }
 
@@ -25,6 +27,7 @@ class ActivityLogger extends Component
     {
         $this->filtroUsuario = '';
         $this->filtroAccion  = '';
+        $this->filtroIp      = '';
         $this->fechaDesde    = '';
         $this->fechaHasta    = '';
         $this->resetPage();
@@ -45,6 +48,8 @@ class ActivityLogger extends Component
                 });
             })
             ->when($this->filtroAccion, fn($q) => $q->where('accion', 'like', "%{$this->filtroAccion}%"))
+            // Coincidencia por prefijo: "192.168." encuentra toda la subred
+            ->when($this->filtroIp, fn($q) => $q->where('ip', 'like', "{$this->filtroIp}%"))
             ->when($this->fechaDesde, fn($q) => $q->whereDate('created_at', '>=', $this->fechaDesde))
             ->when($this->fechaHasta, fn($q) => $q->whereDate('created_at', '<=', $this->fechaHasta))
             ->latest()

@@ -14,7 +14,7 @@ class ActivityLog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function registrar(string $accion, string $descripcion = null): void
+    public static function registrar(string $accion, ?string $descripcion = null): void
     {
         LogActivityJob::dispatch($accion, $descripcion, auth()->id(), request()->ip());
     }

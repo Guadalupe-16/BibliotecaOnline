@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActivityLog;
 use App\Models\User;
 
 class SuperAdminController extends Controller
@@ -33,6 +34,12 @@ class SuperAdminController extends Controller
         $usuario->activo = !$usuario->activo;
         $usuario->save();
 
+        $verbo = $usuario->activo ? 'activó' : 'desactivó';
+        ActivityLog::registrar(
+            'superadmin_toggle_estado',
+            'El usuario ' . auth()->user()->name . " {$verbo} la cuenta de {$usuario->name}."
+        );
+
         return back()->with('success', 'Estado del usuario actualizado.');
     }
 
@@ -45,8 +52,15 @@ class SuperAdminController extends Controller
         }
 
         $usuario = User::findOrFail($id);
+        $rolAnterior = $usuario->rol;
         $usuario->rol = $nuevoRol;
         $usuario->save();
+
+        ActivityLog::registrar(
+            'superadmin_cambio_rol',
+            'El usuario ' . auth()->user()->name
+                . " cambió el rol de {$usuario->name} de {$rolAnterior} a {$nuevoRol} (panel de superadministrador)."
+        );
 
         return back()->with('success', "Rol actualizado a {$nuevoRol}.");
     }
