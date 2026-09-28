@@ -1,0 +1,70 @@
+# SonarQube local para BibliotecaOnline (Issue #153).
+# Guia: docs/cicd/sonarqube-instalacion.md
+#
+#   Levantar:  docker compose -f sonarqube/docker-compose.yml up -d   (UI en http://localhost:9001)
+#   Analizar (Mac Apple Silicon, recomendado): SONAR_TOKEN=<token> sonar-scanner -Dsonar.host.url=http://localhost:9001
+#   Analizar (Linux/Intel, en contenedor):      SONAR_TOKEN=<token> docker compose -f sonarqube/docker-compose.yml run --rm scanner
+#   Detener:   docker compose -f sonarqube/docker-compose.yml down
+#
+# Sin secretos: la BD solo es accesible dentro de la red de Docker y el token del scanner
+# se pasa por variable de entorno al ejecutar, nunca se escribe en este archivo.
+
+name: bibliotecaonline-sonarqube
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: ${SONAR_DB_PASSWORD:-sonar}
+      POSTGRES_DB: sonar
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar -d sonar"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  sonarqube:
+    image: sonarqube:26.9.0.129388-community
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://db:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: ${SONAR_DB_PASSWORD:-sonar}
+      # Evita tener que subir vm.max_map_count en la VM de Docker (Colima/Docker Desktop)
+      SONAR_SEARCH_JAVAADDITIONALOPTS: "-Dnode.store.allow_mmap=false"
+    # Puerto en la Mac: 9001 por defecto porque PHP-FPM (Valet/Homebrew) suele ocupar el 9000.
+    # Se cambia con SONAR_PORT=<puerto>; el scanner usa la red interna y no se ve afectado.
+    ports:
+      - "${SONAR_PORT:-9001}:9000"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  # Solo se ejecuta bajo demanda (perfil "scan"); lee sonar-project.properties de la raiz.
+  # La imagen solo existe para amd64: en Mac Apple Silicon corre emulada y el analisis de JS
+  # falla por memoria ("bridge server is unresponsive"). Ahi usar el scanner nativo (ver guia).
+  scanner:
+    image: sonarsource/sonar-scanner-cli:12.2
+    platform: linux/amd64
+    profiles: ["scan"]
+    depends_on:
+      - sonarqube
+    environment:
+      SONAR_HOST_URL: http://sonarqube:9000
+      # Obligatorio al analizar; sin token el scanner falla con "Not authorized"
+      SONAR_TOKEN: ${SONAR_TOKEN:-}
+    volumes:
+      - ..:/usr/src
+    working_dir: /usr/src
+
+volumes:
+  postgresql:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
