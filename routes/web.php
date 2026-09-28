@@ -89,6 +89,8 @@ Route::middleware(['auth', 'role:admin,superadmin'])->group(function () {
     Route::put('/admin/roles/{id}', [RbacController::class, 'actualizar'])->name('admin.rbac.actualizar');
 
     Route::get('/admin/logs', fn() => view('logs.index'))->name('admin.logs');
+
+    Route::get('/admin/trazas', fn() => view('trazas.index'))->name('admin.trazas');
 });
 
 // Rutas solo para usuarios autenticados

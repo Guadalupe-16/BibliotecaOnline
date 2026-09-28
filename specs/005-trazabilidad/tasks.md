@@ -10,8 +10,10 @@ description: "Lista de tareas de la spec 005 — trazabilidad técnica de solici
 
 **Prerequisites**: plan.md, spec.md, research.md, data-model.md
 
-**Estado**: Todas las tareas están **pendientes**. Este Issue (#164) es solo de planeación; estas
-tareas se ejecutarán en el Issue de implementación que enlace esta spec.
+**Estado**: Implementado en el Issue #166 (rama `feat/166-trazabilidad`). Todas las tareas de este
+documento fueron ejecutadas; ver `docs/monitoreo/trazabilidad.md` para el resumen funcional y
+"Decisiones o desviaciones del spec" en el reporte del Issue #166 para los ajustes de diseño hechos
+durante la implementación.
 
 **Tests**: se generan tareas de prueba Feature (middleware, control de acceso, comando de poda) y,
 opcionalmente, un test de Livewire para el visor.
@@ -27,8 +29,10 @@ opcionalmente, un test de Livewire para el visor.
 
 **Purpose**: Confirmar decisiones de diseño antes de crear la migración
 
-- [ ] T001 Confirmar con el equipo el umbral de retención (propuesto 30 días, research.md §5) y si
+- [X] T001 Confirmar con el equipo el umbral de retención (propuesto 30 días, research.md §5) y si
   `user_agent` se incluye en esta primera versión (research.md §6)
+  — **Decisión (Issue #166)**: se mantiene el default propuesto de 30 días
+  (`TRAZABILIDAD_RETENCION_DIAS`, configurable) y se incluye `user_agent`, truncado a 255 caracteres.
 
 ---
 
@@ -36,18 +40,22 @@ opcionalmente, un test de Livewire para el visor.
 
 **Purpose**: Esquema, modelo y persistencia asíncrona que todas las historias necesitan
 
-- [ ] T002 Crear la migración `database/migrations/xxxx_xx_xx_create_request_traces_table.php` según
+- [X] T002 Crear la migración `database/migrations/xxxx_xx_xx_create_request_traces_table.php` según
   data-model.md (campos, índices en `created_at`, `ruta`+`status_http`, único en `trace_id`)
-- [ ] T003 [P] Crear `app/Models/RequestTrace.php` (fillable, relación `user()`, sin `updated_at`)
-- [ ] T004 [P] Crear `app/Jobs/LogRequestTraceJob.php` (`ShouldQueue`, mismo patrón que
+- [X] T003 [P] Crear `app/Models/RequestTrace.php` (fillable, relación `user()`, sin `updated_at`)
+- [X] T004 [P] Crear `app/Jobs/LogRequestTraceJob.php` (`ShouldQueue`, mismo patrón que
   `App\Jobs\LogActivityJob`)
-- [ ] T005 Crear `app/Http/Middleware/RegistrarTrazabilidad.php`: genera `trace_id`, mide duración en
+- [X] T005 Crear `app/Http/Middleware/RegistrarTrazabilidad.php`: genera `trace_id`, mide duración en
   `terminate()`, calcula `resultado` (`ok`/`error` según `status_http >= 500` o excepción no
   controlada) y despacha `LogRequestTraceJob` con datos ya serializados (sin objetos `Request`/
   `Response` completos)
-- [ ] T006 Registrar el middleware en el grupo `web` en `bootstrap/app.php`, excluyendo `/metrics` y
-  `/up` si ya existen (coordinar con spec 004)
-- [ ] T007 [P] Feature test: una petición cualquiera genera una fila en `request_traces` con los campos
+- [X] T006 Registrar el middleware en el grupo `web` en `bootstrap/app.php`
+  — **Desviación (Issue #166)**: se antepone (`prepend`) en vez de anexar (`append`) al grupo `web`,
+  para capturar también peticiones que fallan por *route model binding* antes de llegar al
+  controlador (ver "Decisiones o desviaciones del spec" del reporte del Issue). `/up` ya queda
+  excluido de forma natural (no pasa por el grupo `web`); `/metrics` no existe todavía (spec 004 sin
+  implementar).
+- [X] T007 [P] Feature test: una petición cualquiera genera una fila en `request_traces` con los campos
   esperados (usar `Bus::fake()`/`Queue::fake()` o ejecutar el job de forma síncrona en el test)
 
 **Checkpoint**: cada petición queda trazada de forma asíncrona, sin bloquear la respuesta
@@ -60,14 +68,14 @@ opcionalmente, un test de Livewire para el visor.
 
 **Independent Test**: generar una petición fallida y encontrarla en el visor filtrando por resultado
 
-- [ ] T008 [US1] Crear `app/Livewire/TrazabilidadViewer.php` (`WithPagination`; filtros por ruta,
+- [X] T008 [US1] Crear `app/Livewire/TrazabilidadViewer.php` (`WithPagination`; filtros por ruta,
   resultado, rango de fechas y, opcionalmente, usuario; mismo patrón que
   `app/Livewire/ActivityLogger.php`)
-- [ ] T009 [US1] Crear `resources/views/livewire/trazabilidad-viewer.blade.php` con el listado paginado
+- [X] T009 [US1] Crear `resources/views/livewire/trazabilidad-viewer.blade.php` con el listado paginado
   y un enlace/expansión al detalle de cada traza
-- [ ] T010 [US1] Crear `resources/views/trazas/index.blade.php` (layout con `@include('components.navigation')`,
+- [X] T010 [US1] Crear `resources/views/trazas/index.blade.php` (layout con `@include('components.navigation')`,
   igual patrón que `resources/views/logs/index.blade.php`)
-- [ ] T011 [US1] Feature test: filtrar por rango de fechas y por resultado devuelve solo las trazas
+- [X] T011 [US1] Feature test: filtrar por rango de fechas y por resultado devuelve solo las trazas
   esperadas (test de Livewire sobre `TrazabilidadViewer`)
 
 **Checkpoint**: el visor permite encontrar una traza específica por sus filtros
@@ -80,11 +88,11 @@ opcionalmente, un test de Livewire para el visor.
 
 **Independent Test**: `403` para rol `usuario`, `200` para `admin`/`superadmin`
 
-- [ ] T012 [US2] Agregar la ruta `GET /admin/trazas` en `routes/web.php`, dentro del grupo
+- [X] T012 [US2] Agregar la ruta `GET /admin/trazas` en `routes/web.php`, dentro del grupo
   `Route::middleware(['auth', 'role:admin,superadmin'])` ya existente (junto a `admin.logs`)
-- [ ] T013 [US2] Feature test: `GET /admin/trazas` responde `403` para un usuario con rol `usuario`,
+- [X] T013 [US2] Feature test: `GET /admin/trazas` responde `403` para un usuario con rol `usuario`,
   redirige a login sin sesión, y responde `200` para `admin`/`superadmin`
-- [ ] T014 [US2] Agregar el enlace al visor en la navegación administrativa (`components.navigation`),
+- [X] T014 [US2] Agregar el enlace al visor en la navegación administrativa (`components.navigation`),
   visible solo para los roles permitidos
 
 **Checkpoint**: control de acceso verificado por prueba automatizada
@@ -97,12 +105,12 @@ opcionalmente, un test de Livewire para el visor.
 
 **Independent Test**: ejecutar el comando de poda y verificar que borra solo lo antiguo
 
-- [ ] T015 [US3] Crear `app/Console/Commands/PodarTrazasCommand.php` (`trazas:podar`, umbral
+- [X] T015 [US3] Crear `app/Console/Commands/PodarTrazasCommand.php` (`trazas:podar`, umbral
   configurable por variable de entorno, default confirmado en T001)
-- [ ] T016 [US3] Programar el comando en `routes/console.php` con `Schedule::command('trazas:podar')->daily()`
-- [ ] T017 [US3] Test del comando: registros más antiguos que el umbral se borran, registros recientes
+- [X] T016 [US3] Programar el comando en `routes/console.php` con `Schedule::command('trazas:podar')->daily()`
+- [X] T017 [US3] Test del comando: registros más antiguos que el umbral se borran, registros recientes
   se conservan
-- [ ] T018 [US3] Revisar (code review checklist) que `LogRequestTraceJob` y `RequestTrace` no incluyen
+- [X] T018 [US3] Revisar (code review checklist) que `LogRequestTraceJob` y `RequestTrace` no incluyen
   contraseñas, tokens, cookies ni cuerpos de petición/respuesta (FR-003); dejar constancia en el PR
 
 **Checkpoint**: retención automática probada; revisión de datos sensibles sin hallazgos
