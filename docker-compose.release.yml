@@ -2,7 +2,8 @@
 # No se usa directamente: lo manejan scripts/deploy.sh, scripts/test-release.sh y scripts/rollback.sh,
 # que le pasan --env-file .env.release (generado por scripts/prepare-release.sh, nunca versionado).
 #
-# Servicios: app (Apache + PHP 8.2), worker (cola de Laravel) y db (MySQL 8.4).
+# Servicios: app (Apache + PHP 8.2), worker (cola de Laravel), scheduler (tareas programadas)
+# y db (MySQL 8.4).
 
 name: bibliotecaonline-release
 
@@ -42,6 +43,20 @@ services:
     environment:
       RUN_MIGRATIONS: "false"
     command: ["php", "artisan", "queue:work", "--tries=3", "--sleep=3", "--max-time=3600"]
+    healthcheck:
+      disable: true
+    depends_on:
+      app:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Tareas programadas de Laravel (routes/console.php), p. ej. trazas:podar diario (Issue #168)
+  scheduler:
+    image: bibliotecaonline:${RELEASE_VERSION:?Define RELEASE_VERSION (lo hace scripts/deploy.sh)}
+    env_file: .env.release
+    environment:
+      RUN_MIGRATIONS: "false"
+    command: ["php", "artisan", "schedule:work"]
     healthcheck:
       disable: true
     depends_on:

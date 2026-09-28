@@ -59,6 +59,7 @@ flowchart LR
 |---|---|---|
 | `app` | `bibliotecaonline:<version>` (PHP 8.2 + Apache) | Sirve la aplicación en `http://127.0.0.1:8090`; al arrancar migra la BD y siembra datos si el catálogo está vacío |
 | `worker` | `bibliotecaonline:<version>` | `php artisan queue:work`: procesa la cola (p. ej. activity logs, importación de Open Library) |
+| `scheduler` | `bibliotecaonline:<version>` | `php artisan schedule:work`: tareas programadas, p. ej. `trazas:podar` diario (agregado en #168) |
 | `db` | `mysql:8.4` | Base de datos con volumen persistente `mysql_data` |
 
 **Imagen de liberación (`Dockerfile`, 3 etapas):**
