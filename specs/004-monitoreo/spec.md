@@ -1,10 +1,10 @@
 # Feature Specification: Monitoreo de la aplicación
 
-**Feature Branch**: Por definir (se asignará `tipo/NNN-descripcion` al crear el Issue de implementación)
+**Feature Branch**: `feat/165-monitoreo-prometheus-grafana` (implementación, Issue #165)
 
 **Created**: 2026-09-27
 
-**Status**: Draft (planeación — Issue #164)
+**Status**: Implementado (Issue #165) — planeada en el Issue #164
 
 **Input**: Actividad 3.1: diseñar con SDD el módulo de monitoreo de BibliotecaOnline (métricas,
 dashboard y alertas), eligiendo herramienta entre Nagios, Zabbix, Prometheus + Grafana y Datadog. Este
