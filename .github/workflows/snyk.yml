@@ -1,0 +1,90 @@
+# Analisis de seguridad con Snyk (Issue #170).
+# Guia: docs/cicd/snyk-analisis-seguridad.md
+#
+# Requiere el secret SNYK_TOKEN en el repositorio (Settings -> Secrets and variables -> Actions).
+# Sin el secret, el job termina en verde con un aviso y no analiza nada.
+# Modo informativo: reporta vulnerabilidades pero no bloquea el merge (ver guia, seccion 7).
+
+name: Seguridad — Snyk
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  schedule:
+    - cron: "0 13 * * 1" # lunes 13:00 UTC: detecta vulnerabilidades nuevas sin cambios de codigo
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  snyk:
+    name: Snyk (dependencias y código)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+    steps:
+      - name: Verificar que exista SNYK_TOKEN
+        id: token
+        run: |
+          if [ -z "$SNYK_TOKEN" ]; then
+            echo "habilitado=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Snyk omitido::No existe el secret SNYK_TOKEN; el analisis se ejecuta en local (ver docs/cicd/snyk-analisis-seguridad.md)."
+          else
+            echo "habilitado=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout codigo
+        if: steps.token.outputs.habilitado == 'true'
+        uses: actions/checkout@v4
+
+      - name: Instalar Snyk CLI
+        if: steps.token.outputs.habilitado == 'true'
+        uses: snyk/actions/setup@master
+
+      - name: Dependencias PHP (composer.lock)
+        if: steps.token.outputs.habilitado == 'true'
+        continue-on-error: true
+        run: snyk test --file=composer.lock --json-file-output=snyk-php.json
+
+      - name: Dependencias JS (package-lock.json, incluye devDependencies)
+        if: steps.token.outputs.habilitado == 'true'
+        continue-on-error: true
+        run: snyk test --file=package-lock.json --dev --json-file-output=snyk-js.json
+
+      - name: Codigo fuente (Snyk Code)
+        if: steps.token.outputs.habilitado == 'true'
+        continue-on-error: true
+        run: snyk code test --json-file-output=snyk-code.json
+
+      - name: Resumen
+        if: steps.token.outputs.habilitado == 'true'
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json, collections, os
+          print("## Snyk — resumen\n")
+          print("| Análisis | Únicas | Critical | High | Medium | Low |")
+          print("|---|---|---|---|---|---|")
+          for nombre, archivo in [("Dependencias PHP", "snyk-php.json"), ("Dependencias JS", "snyk-js.json")]:
+              if not os.path.exists(archivo):
+                  print(f"| {nombre} | sin resultado | | | | |"); continue
+              u = {v["id"]: v for v in json.load(open(archivo)).get("vulnerabilities", [])}
+              c = collections.Counter(v["severity"] for v in u.values())
+              print(f"| {nombre} | {len(u)} | {c['critical']} | {c['high']} | {c['medium']} | {c['low']} |")
+          if os.path.exists("snyk-code.json"):
+              r = json.load(open("snyk-code.json"))["runs"][0]["results"]
+              c = collections.Counter(x["level"] for x in r)
+              print(f"| Código (Snyk Code) | {len(r)} | — | {c['error']} | {c['warning']} | {c['note']} |")
+          EOF
+
+      - name: Guardar resultados
+        if: steps.token.outputs.habilitado == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-resultados
+          path: snyk-*.json
+          retention-days: 30

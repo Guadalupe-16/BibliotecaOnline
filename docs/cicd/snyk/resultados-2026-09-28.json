@@ -1,0 +1,4071 @@
+{
+ "fecha": "2026-09-28",
+ "commit": "a18fd09",
+ "herramienta": "Snyk CLI 1.1307.4",
+ "organizacion": "eljavierb0",
+ "dependencias_php": {
+  "analisis": "snyk test --file=composer.lock",
+  "dependencias_analizadas": 99,
+  "rutas_vulnerables": 39,
+  "vulnerabilidades_unicas": 33,
+  "por_severidad": {
+   "critical": 1,
+   "high": 12,
+   "medium": 17,
+   "low": 3
+  },
+  "vulnerabilidades": [
+   {
+    "id": "SNYK-PHP-SYMFONYMAILER-16873898",
+    "paquete": "symfony/mailer",
+    "version": "7.4.4",
+    "severidad": "critical",
+    "titulo": "Arbitrary Argument Injection",
+    "cve": [
+     "CVE-2026-45068"
+    ],
+    "corregido_en": [
+     "5.4.52",
+     "6.4.40",
+     "7.4.12",
+     "8.0.12"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-17400374",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "high",
+    "titulo": "Missing Encryption of Sensitive Data",
+    "cve": [
+     "CVE-2026-55568"
+    ],
+    "corregido_en": [
+     "7.12.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18306774",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "high",
+    "titulo": "Improper Removal of Sensitive Information Before Storage or Transfer",
+    "cve": [
+     "CVE-2026-67354"
+    ],
+    "corregido_en": [
+     "7.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18306777",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "high",
+    "titulo": "Incorrectly Specified Destination in a Communication Channel",
+    "cve": [
+     "CVE-2026-67355"
+    ],
+    "corregido_en": [
+     "7.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600654",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86433"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600655",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Excessive Platform Resource Consumption within a Loop",
+    "cve": [
+     "CVE-2026-71488"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600656",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86435"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600664",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86434"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-20158924",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86429"
+    ],
+    "corregido_en": [
+     "2.9.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-20158925",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86428"
+    ],
+    "corregido_en": [
+     "2.10.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-20158941",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-86430"
+    ],
+    "corregido_en": [
+     "2.9.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-SYMFONYHTTPKERNEL-16786777",
+    "paquete": "symfony/http-kernel",
+    "version": "7.4.5",
+    "severidad": "high",
+    "titulo": "Incorrect Authorization",
+    "cve": [
+     "CVE-2026-45075"
+    ],
+    "corregido_en": [
+     "7.4.12",
+     "8.0.12"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-SYMFONYROUTING-16799802",
+    "paquete": "symfony/routing",
+    "version": "7.4.4",
+    "severidad": "high",
+    "titulo": "Incorrect Regular Expression",
+    "cve": [
+     "CVE-2026-45065"
+    ],
+    "corregido_en": [
+     "5.4.52",
+     "6.4.40",
+     "7.4.12",
+     "8.0.12"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-17400370",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "medium",
+    "titulo": "Origin Validation Error",
+    "cve": [
+     "CVE-2026-55767"
+    ],
+    "corregido_en": [
+     "7.12.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18306770",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "medium",
+    "titulo": "Insufficiently Protected Credentials",
+    "cve": [
+     "CVE-2026-67339"
+    ],
+    "corregido_en": [
+     "7.14.2"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18306780",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "medium",
+    "titulo": "Improperly Controlled Sequential Memory Allocation",
+    "cve": [
+     "CVE-2026-67353"
+    ],
+    "corregido_en": [
+     "7.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18543664",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "medium",
+    "titulo": "Incorrect Behavior Order: Validate Before Canonicalize",
+    "cve": [
+     "CVE-2026-69245"
+    ],
+    "corregido_en": [
+     "7.15.2",
+     "8.0.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-18543681",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "medium",
+    "titulo": "Incorrect Behavior Order: Validate Before Canonicalize",
+    "cve": [
+     "CVE-2026-69246"
+    ],
+    "corregido_en": [
+     "7.15.2",
+     "8.0.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPPSR7-17318030",
+    "paquete": "guzzlehttp/psr7",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "HTTP Response Splitting",
+    "cve": [
+     "CVE-2026-49214"
+    ],
+    "corregido_en": [
+     "2.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPPSR7-17318033",
+    "paquete": "guzzlehttp/psr7",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Server-side Request Forgery (SSRF)",
+    "cve": [
+     "CVE-2026-48998"
+    ],
+    "corregido_en": [
+     "2.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPPSR7-17393718",
+    "paquete": "guzzlehttp/psr7",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-55766"
+    ],
+    "corregido_en": [
+     "2.12.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LARAVELFRAMEWORK-17146874",
+    "paquete": "laravel/framework",
+    "version": "12.52.0",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-48019"
+    ],
+    "corregido_en": [
+     "12.60.0",
+     "13.10.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-15440728",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Cross-site Scripting (XSS)",
+    "cve": [
+     "CVE-2026-30838"
+    ],
+    "corregido_en": [
+     "2.8.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-15763119",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Server-side Request Forgery (SSRF)",
+    "cve": [
+     "CVE-2026-33347"
+    ],
+    "corregido_en": [
+     "2.8.2"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600657",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Asymmetric Resource Consumption (Amplification)",
+    "cve": [
+     "CVE-2026-86432"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-18600665",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Incomplete Denylist to Cross-Site Scripting",
+    "cve": [
+     "CVE-2026-71478"
+    ],
+    "corregido_en": [
+     "2.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LEAGUECOMMONMARK-20158936",
+    "paquete": "league/commonmark",
+    "version": "2.8.0",
+    "severidad": "medium",
+    "titulo": "Cross-site Scripting (XSS)",
+    "cve": [
+     "CVE-2026-86431"
+    ],
+    "corregido_en": [
+     "2.9.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-SYMFONYMIME-16797270",
+    "paquete": "symfony/mime",
+    "version": "7.4.5",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-45070"
+    ],
+    "corregido_en": [
+     "5.4.52",
+     "6.4.40",
+     "7.4.12",
+     "8.0.12"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-SYMFONYMIME-16797290",
+    "paquete": "symfony/mime",
+    "version": "7.4.5",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-45067"
+    ],
+    "corregido_en": [
+     "5.4.52",
+     "6.4.40",
+     "7.4.12",
+     "8.0.12"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-SYMFONYPOLYFILLINTLIDN-16881598",
+    "paquete": "symfony/polyfill-intl-idn",
+    "version": "1.33.0",
+    "severidad": "medium",
+    "titulo": "Incorrect Comparison",
+    "cve": [
+     "CVE-2026-46644"
+    ],
+    "corregido_en": [
+     "1.38.1"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPGUZZLE-17895058",
+    "paquete": "guzzlehttp/guzzle",
+    "version": "7.10.0",
+    "severidad": "low",
+    "titulo": "Origin Validation Error",
+    "cve": [
+     "CVE-2026-59883"
+    ],
+    "corregido_en": [
+     "7.12.3"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-GUZZLEHTTPPSR7-17895059",
+    "paquete": "guzzlehttp/psr7",
+    "version": "2.8.0",
+    "severidad": "low",
+    "titulo": "Interpretation Conflict",
+    "cve": [
+     "CVE-2026-59882"
+    ],
+    "corregido_en": [
+     "2.12.3"
+    ]
+   },
+   {
+    "id": "SNYK-PHP-LARAVELFRAMEWORK-17660423",
+    "paquete": "laravel/framework",
+    "version": "12.52.0",
+    "severidad": "low",
+    "titulo": "Improper Encoding or Escaping of Output",
+    "cve": [],
+    "corregido_en": [
+     "12.61.1",
+     "13.12.0"
+    ]
+   }
+  ]
+ },
+ "dependencias_js": {
+  "analisis": "snyk test --file=package-lock.json --dev",
+  "dependencias_analizadas": 329,
+  "rutas_vulnerables": 123,
+  "vulnerabilidades_unicas": 87,
+  "por_severidad": {
+   "critical": 11,
+   "high": 39,
+   "medium": 35,
+   "low": 2
+  },
+  "vulnerabilidades": [
+   {
+    "id": "SNYK-JS-VITESTCOVERAGEV8-17375132",
+    "paquete": "@vitest/coverage-v8",
+    "version": "4.1.0",
+    "severidad": "critical",
+    "titulo": "Missing Authorization",
+    "cve": [
+     "CVE-2026-53633"
+    ],
+    "corregido_en": [
+     "3.2.5",
+     "4.1.8",
+     "5.0.0-beta.4"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16298058",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "critical",
+    "titulo": "HTTP Response Splitting",
+    "cve": [
+     "CVE-2026-42035"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299904",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "critical",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-42033"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16417750",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "critical",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-42264"
+    ],
+    "corregido_en": [
+     "1.15.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-ESBUILD-17750822",
+    "paquete": "esbuild",
+    "version": "0.27.3",
+    "severidad": "critical",
+    "titulo": "Resources Downloaded over Insecure Protocol",
+    "cve": [],
+    "corregido_en": [
+     "0.28.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-FLATTED-15700433",
+    "paquete": "flatted",
+    "version": "3.4.1",
+    "severidad": "critical",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-33228"
+    ],
+    "corregido_en": [
+     "3.4.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-SHELLQUOTE-16799355",
+    "paquete": "shell-quote",
+    "version": "1.8.3",
+    "severidad": "critical",
+    "titulo": "Arbitrary Command Injection",
+    "cve": [
+     "CVE-2026-9277"
+    ],
+    "corregido_en": [
+     "1.8.4"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372658",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "critical",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-9679"
+    ],
+    "corregido_en": [
+     "6.27.0",
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635218",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "critical",
+    "titulo": "Improper Certificate Validation",
+    "cve": [
+     "CVE-2026-84961"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-VITEST-17120487",
+    "paquete": "vitest",
+    "version": "4.1.0",
+    "severidad": "critical",
+    "titulo": "Cross-site Scripting (XSS)",
+    "cve": [
+     "CVE-2026-47428"
+    ],
+    "corregido_en": [
+     "4.1.6",
+     "5.0.0-beta.3"
+    ]
+   },
+   {
+    "id": "SNYK-JS-VITEST-17375131",
+    "paquete": "vitest",
+    "version": "4.1.0",
+    "severidad": "critical",
+    "titulo": "Missing Authorization",
+    "cve": [
+     "CVE-2026-53633"
+    ],
+    "corregido_en": [
+     "3.2.5",
+     "4.1.8",
+     "5.0.0-beta.4"
+    ]
+   },
+   {
+    "id": "SNYK-JS-VITESTMOCKER-19497933",
+    "paquete": "@vitest/mocker",
+    "version": "4.1.0",
+    "severidad": "high",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-84373"
+    ],
+    "corregido_en": [
+     "4.1.11",
+     "5.0.0-rc.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-15969258",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "HTTP Response Splitting",
+    "cve": [
+     "CVE-2026-40175"
+    ],
+    "corregido_en": [
+     "0.31.0",
+     "1.15.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299921",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+    "cve": [
+     "CVE-2026-42044"
+    ],
+    "corregido_en": [
+     "1.15.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299923",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2026-42039"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17111060",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-44495"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17111062",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Server-side Request Forgery (SSRF)",
+    "cve": [
+     "CVE-2026-44492"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17111079",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-44494"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17172681",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "high",
+    "titulo": "Insertion of Sensitive Information Into Sent Data",
+    "cve": [
+     "CVE-2026-44486"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-BRACEEXPANSION-15789759",
+    "paquete": "brace-expansion",
+    "version": "1.1.12",
+    "severidad": "high",
+    "titulo": "Infinite loop",
+    "cve": [
+     "CVE-2026-33750"
+    ],
+    "corregido_en": [
+     "1.1.13",
+     "2.0.3",
+     "3.0.2",
+     "5.0.5"
+    ]
+   },
+   {
+    "id": "SNYK-JS-BRACEEXPANSION-17706650",
+    "paquete": "brace-expansion",
+    "version": "1.1.12",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-13149"
+    ],
+    "corregido_en": [
+     "1.1.16",
+     "2.1.2",
+     "5.0.7"
+    ]
+   },
+   {
+    "id": "SNYK-JS-BRACEEXPANSION-18313044",
+    "paquete": "brace-expansion",
+    "version": "1.1.12",
+    "severidad": "high",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-14257"
+    ],
+    "corregido_en": [
+     "1.1.16",
+     "2.1.2",
+     "5.0.8"
+    ]
+   },
+   {
+    "id": "SNYK-JS-BRACEEXPANSION-18512280",
+    "paquete": "brace-expansion",
+    "version": "1.1.12",
+    "severidad": "high",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-69152"
+    ],
+    "corregido_en": [
+     "1.1.18",
+     "2.1.4",
+     "3.0.6",
+     "5.0.9"
+    ]
+   },
+   {
+    "id": "SNYK-JS-FOLLOWREDIRECTS-16032162",
+    "paquete": "follow-redirects",
+    "version": "1.15.11",
+    "severidad": "high",
+    "titulo": "Improper Removal of Sensitive Information Before Storage or Transfer",
+    "cve": [
+     "CVE-2026-40895"
+    ],
+    "corregido_en": [
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-JSYAML-17900054",
+    "paquete": "js-yaml",
+    "version": "4.1.1",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-59869"
+    ],
+    "corregido_en": [
+     "3.15.0",
+     "4.3.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-JSYAML-18593780",
+    "paquete": "js-yaml",
+    "version": "4.1.1",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [],
+    "corregido_en": [
+     "3.15.1",
+     "4.3.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-JSYAML-19496768",
+    "paquete": "js-yaml",
+    "version": "4.1.1",
+    "severidad": "high",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-84375"
+    ],
+    "corregido_en": [
+     "3.15.2",
+     "4.3.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-NANOID-18506894",
+    "paquete": "nanoid",
+    "version": "3.3.11",
+    "severidad": "high",
+    "titulo": "Infinite loop",
+    "cve": [
+     "CVE-2026-67214"
+    ],
+    "corregido_en": [
+     "3.3.16",
+     "5.1.16"
+    ]
+   },
+   {
+    "id": "SNYK-JS-NANOID-18506897",
+    "paquete": "nanoid",
+    "version": "3.3.11",
+    "severidad": "high",
+    "titulo": "Infinite loop",
+    "cve": [
+     "CVE-2026-67213"
+    ],
+    "corregido_en": [
+     "3.3.17",
+     "5.1.6"
+    ]
+   },
+   {
+    "id": "SNYK-JS-NANOID-18748186",
+    "paquete": "nanoid",
+    "version": "3.3.11",
+    "severidad": "high",
+    "titulo": "Integer Overflow or Wraparound",
+    "cve": [
+     "CVE-2026-73086"
+    ],
+    "corregido_en": [
+     "3.3.12",
+     "5.1.11"
+    ]
+   },
+   {
+    "id": "SNYK-JS-PICOMATCH-15765511",
+    "paquete": "picomatch",
+    "version": "4.0.3",
+    "severidad": "high",
+    "titulo": "Regular Expression Denial of Service (ReDoS)",
+    "cve": [
+     "CVE-2026-33671"
+    ],
+    "corregido_en": [
+     "2.3.2",
+     "3.0.2",
+     "4.0.4"
+    ]
+   },
+   {
+    "id": "SNYK-JS-POSTCSS-18313036",
+    "paquete": "postcss",
+    "version": "8.5.6",
+    "severidad": "high",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-45623"
+    ],
+    "corregido_en": [
+     "8.5.12"
+    ]
+   },
+   {
+    "id": "SNYK-JS-POSTCSS-18313038",
+    "paquete": "postcss",
+    "version": "8.5.6",
+    "severidad": "high",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-73646"
+    ],
+    "corregido_en": [
+     "8.5.18"
+    ]
+   },
+   {
+    "id": "SNYK-JS-ROLLUP-15340920",
+    "paquete": "rollup",
+    "version": "4.57.1",
+    "severidad": "high",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-27606"
+    ],
+    "corregido_en": [
+     "2.80.0",
+     "3.30.0",
+     "4.59.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-SHELLQUOTE-17457810",
+    "paquete": "shell-quote",
+    "version": "1.8.3",
+    "severidad": "high",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-13311"
+    ],
+    "corregido_en": [
+     "1.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372667",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Origin Validation Error",
+    "cve": [
+     "CVE-2026-6734"
+    ],
+    "corregido_en": [
+     "7.28.0",
+     "8.2.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372697",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Use of Cache Containing Sensitive Information",
+    "cve": [
+     "CVE-2026-9678"
+    ],
+    "corregido_en": [
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372754",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-12151"
+    ],
+    "corregido_en": [
+     "6.26.0",
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372758",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Permissive List of Allowed Inputs",
+    "cve": [
+     "CVE-2026-11525"
+    ],
+    "corregido_en": [
+     "6.27.0",
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-18426065",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Interpretation Conflict",
+    "cve": [
+     "CVE-2026-14643"
+    ],
+    "corregido_en": [
+     "7.29.0",
+     "8.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-18426521",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Information Exposure",
+    "cve": [
+     "CVE-2026-13697"
+    ],
+    "corregido_en": [
+     "7.29.0",
+     "8.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635206",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Missing Release of Resource after Effective Lifetime",
+    "cve": [
+     "CVE-2026-18149"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635208",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-84890"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635210",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Uncaught Exception",
+    "cve": [
+     "CVE-2026-19534"
+    ],
+    "corregido_en": [
+     "6.28.1",
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635216",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Use of Persistent Cookies Containing Sensitive Information",
+    "cve": [
+     "CVE-2026-84933"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635222",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "high",
+    "titulo": "Uncaught Exception",
+    "cve": [
+     "CVE-2026-85014"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-URIJS-19963963",
+    "paquete": "uri-js",
+    "version": "4.4.1",
+    "severidad": "high",
+    "titulo": "Infinite loop",
+    "cve": [
+     "CVE-2026-93690"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-JS-VITE-15922242",
+    "paquete": "vite",
+    "version": "7.3.1",
+    "severidad": "high",
+    "titulo": "Missing Authentication for Critical Function",
+    "cve": [
+     "CVE-2026-39363"
+    ],
+    "corregido_en": [
+     "6.4.2",
+     "7.3.2",
+     "8.0.5"
+    ]
+   },
+   {
+    "id": "SNYK-JS-VITE-15922245",
+    "paquete": "vite",
+    "version": "7.3.1",
+    "severidad": "high",
+    "titulo": "Incorrect Behavior Order: Validate Before Canonicalize",
+    "cve": [
+     "CVE-2026-39364"
+    ],
+    "corregido_en": [
+     "7.3.2",
+     "8.0.5"
+    ]
+   },
+   {
+    "id": "SNYK-JS-VITE-17353904",
+    "paquete": "vite",
+    "version": "7.3.1",
+    "severidad": "high",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-53571"
+    ],
+    "corregido_en": [
+     "6.4.3",
+     "7.3.5",
+     "8.0.16"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-15965856",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Unintended Proxy or Intermediary ('Confused Deputy')",
+    "cve": [
+     "CVE-2025-62718"
+    ],
+    "corregido_en": [
+     "0.31.0",
+     "1.15.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16298055",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Improper Encoding or Escaping of Output",
+    "cve": [
+     "CVE-2026-42040"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16298095",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Server-side Request Forgery (SSRF)",
+    "cve": [
+     "CVE-2026-42038"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16298130",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-42034"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16298162",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-42036"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299478",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Insertion of Sensitive Information Into Sent Data",
+    "cve": [
+     "CVE-2026-42042"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299819",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-42037"
+    ],
+    "corregido_en": [
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-16299925",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-42041"
+    ],
+    "corregido_en": [
+     "0.31.1",
+     "1.15.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17111081",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-44490"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17172532",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Regular Expression Denial of Service (ReDoS)",
+    "cve": [
+     "CVE-2026-44496"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17172751",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-44488"
+    ],
+    "corregido_en": [
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-17172930",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Insertion of Sensitive Information Into Sent Data",
+    "cve": [
+     "CVE-2026-44487"
+    ],
+    "corregido_en": [
+     "0.32.0",
+     "1.16.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18060165",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-67312"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18060167",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2026-67313"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18060659",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-67314"
+    ],
+    "corregido_en": [
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18060730",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2026-67321"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18060804",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-67318"
+    ],
+    "corregido_en": [
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18065349",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-67319"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18065351",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-67320"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18065353",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2026-67317"
+    ],
+    "corregido_en": [
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-AXIOS-18065355",
+    "paquete": "axios",
+    "version": "1.13.5",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-67316"
+    ],
+    "corregido_en": [
+     "0.33.0",
+     "1.18.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-FORMDATA-17337015",
+    "paquete": "form-data",
+    "version": "4.0.5",
+    "severidad": "medium",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-12143"
+    ],
+    "corregido_en": [
+     "2.5.6",
+     "3.0.5",
+     "4.0.6"
+    ]
+   },
+   {
+    "id": "SNYK-JS-JSYAML-17342520",
+    "paquete": "js-yaml",
+    "version": "4.1.1",
+    "severidad": "medium",
+    "titulo": "Inefficient Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-53550"
+    ],
+    "corregido_en": [
+     "3.15.0",
+     "4.2.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-PICOMATCH-15765513",
+    "paquete": "picomatch",
+    "version": "4.0.3",
+    "severidad": "medium",
+    "titulo": "Prototype Pollution",
+    "cve": [
+     "CVE-2026-33672"
+    ],
+    "corregido_en": [
+     "2.3.2",
+     "3.0.2",
+     "4.0.4"
+    ]
+   },
+   {
+    "id": "SNYK-JS-POSTCSS-16189065",
+    "paquete": "postcss",
+    "version": "8.5.6",
+    "severidad": "medium",
+    "titulo": "Cross-site Scripting (XSS)",
+    "cve": [
+     "CVE-2026-41305"
+    ],
+    "corregido_en": [
+     "8.5.10"
+    ]
+   },
+   {
+    "id": "SNYK-JS-POSTCSS-18512282",
+    "paquete": "postcss",
+    "version": "8.5.6",
+    "severidad": "medium",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-69153"
+    ],
+    "corregido_en": [
+     "8.5.23"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372609",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "Improper Certificate Validation",
+    "cve": [
+     "CVE-2026-9697"
+    ],
+    "corregido_en": [
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-17372752",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "Time-of-check Time-of-use (TOCTOU) Race Condition",
+    "cve": [
+     "CVE-2026-6733"
+    ],
+    "corregido_en": [
+     "6.27.0",
+     "7.28.0",
+     "8.5.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-18426061",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "Improper Neutralization",
+    "cve": [
+     "CVE-2026-16729"
+    ],
+    "corregido_en": [
+     "6.28.0",
+     "7.29.0",
+     "8.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-18426063",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "HTTP Request Smuggling",
+    "cve": [
+     "CVE-2026-16728"
+    ],
+    "corregido_en": [
+     "6.28.0",
+     "7.29.0",
+     "8.9.0"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635212",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "HTTP Request Smuggling",
+    "cve": [
+     "CVE-2026-18540"
+    ],
+    "corregido_en": [
+     "6.28.1",
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635214",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "Numeric Truncation Error",
+    "cve": [
+     "CVE-2026-84947"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-19635220",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "medium",
+    "titulo": "Insufficient Verification of Data Authenticity",
+    "cve": [
+     "CVE-2026-85008"
+    ],
+    "corregido_en": [
+     "7.29.1",
+     "8.10.2"
+    ]
+   },
+   {
+    "id": "SNYK-JS-URIJS-19963961",
+    "paquete": "uri-js",
+    "version": "4.4.1",
+    "severidad": "medium",
+    "titulo": "Improper Encoding or Escaping of Output",
+    "cve": [
+     "CVE-2026-93751"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-JS-VITE-15922213",
+    "paquete": "vite",
+    "version": "7.3.1",
+    "severidad": "medium",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2026-39365"
+    ],
+    "corregido_en": [
+     "6.4.2",
+     "7.3.2",
+     "8.0.5"
+    ]
+   },
+   {
+    "id": "SNYK-JS-ESBUILD-17750815",
+    "paquete": "esbuild",
+    "version": "0.27.3",
+    "severidad": "low",
+    "titulo": "Directory Traversal",
+    "cve": [],
+    "corregido_en": [
+     "0.28.1"
+    ]
+   },
+   {
+    "id": "SNYK-JS-UNDICI-18426067",
+    "paquete": "undici",
+    "version": "7.24.3",
+    "severidad": "low",
+    "titulo": "CRLF Injection",
+    "cve": [
+     "CVE-2026-15157"
+    ],
+    "corregido_en": [
+     "6.28.0",
+     "7.29.0",
+     "8.9.0"
+    ]
+   }
+  ]
+ },
+ "imagen_docker": {
+  "analisis": "snyk container test bibliotecaonline (php:8.2-apache) --exclude-app-vulns",
+  "dependencias_analizadas": 185,
+  "rutas_vulnerables": 1640,
+  "vulnerabilidades_unicas": 206,
+  "por_severidad": {
+   "high": 11,
+   "medium": 3,
+   "low": 192
+  },
+  "vulnerabilidades": [
+   {
+    "id": "SNYK-DEBIAN13-ACL-17677866",
+    "paquete": "acl",
+    "version": "2.3.2-2+b1",
+    "severidad": "high",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2026-54369"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-ATTR-17678182",
+    "paquete": "attr",
+    "version": "1:2.5.2-3",
+    "severidad": "high",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2026-54371"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-EXPAT-19964593",
+    "paquete": "expat",
+    "version": "2.8.3-1~deb13u1",
+    "severidad": "high",
+    "titulo": "Improper Handling of Unicode Encoding",
+    "cve": [
+     "CVE-2026-93990"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540211",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Integer Coercion Error",
+    "cve": [
+     "CVE-2026-86143"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540216",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Integer Overflow or Wraparound",
+    "cve": [
+     "CVE-2026-86139"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540223",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Stack-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-86140"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540224",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Heap-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-86142"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540226",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Incorrect Resource Transfer Between Spheres",
+    "cve": [
+     "CVE-2026-86144"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540237",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Integer Overflow or Wraparound",
+    "cve": [
+     "CVE-2026-86138"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19669394",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "high",
+    "titulo": "Release of Invalid Pointer or Reference",
+    "cve": [
+     "CVE-2026-74860"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-ZLIB-19520500",
+    "paquete": "zlib",
+    "version": "1:1.3.dfsg+really1.3.1-1+b1",
+    "severidad": "high",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2026-85091"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-ACL-17677882",
+    "paquete": "acl",
+    "version": "2.3.2-2+b1",
+    "severidad": "medium",
+    "titulo": "Time-of-check Time-of-use (TOCTOU)",
+    "cve": [
+     "CVE-2026-54370"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540206",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "medium",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-86137"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19952867",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "medium",
+    "titulo": "NULL Pointer Dereference",
+    "cve": [
+     "CVE-2026-76781"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674836",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Session Fixation",
+    "cve": [
+     "CVE-2001-1534"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674871",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Numeric Errors",
+    "cve": [
+     "CVE-2003-1580"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674877",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Arbitrary Code Injection",
+    "cve": [
+     "CVE-2007-3303"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674887",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2003-1307",
+    "cve": [
+     "CVE-2003-1307"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674896",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Arbitrary Code Injection",
+    "cve": [
+     "CVE-2008-0456"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674901",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Resource Exhaustion",
+    "cve": [
+     "CVE-2007-0086"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674916",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Cross-site Scripting (XSS)",
+    "cve": [
+     "CVE-2003-1581"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APACHE2-5674920",
+    "paquete": "apache2",
+    "version": "2.4.68-1~deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2007-1743",
+    "cve": [
+     "CVE-2007-1743"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-APT-5675173",
+    "paquete": "apt",
+    "version": "3.0.3",
+    "severidad": "low",
+    "titulo": "Improper Verification of Cryptographic Signature",
+    "cve": [
+     "CVE-2011-3374"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-10259215",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-5244"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-10259219",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-5245"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-10740891",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-7546"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-10740892",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-7545"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-11023297",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-8225"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13139198",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-11081"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13139205",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-11083"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13139206",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-11082"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13504359",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2025-11414"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13504362",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2025-11413"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13504372",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2025-11412"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13530044",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-11495"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13530046",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2025-11494"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13600815",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2025-11840"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-13600821",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Unchecked Return Value",
+    "cve": [
+     "CVE-2025-11839"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723748",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66866",
+    "cve": [
+     "CVE-2025-66866"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723749",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66861",
+    "cve": [
+     "CVE-2025-66861"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723752",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66862",
+    "cve": [
+     "CVE-2025-66862"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723756",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66863",
+    "cve": [
+     "CVE-2025-66863"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723760",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66865",
+    "cve": [
+     "CVE-2025-66865"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-14723770",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-66864",
+    "cve": [
+     "CVE-2025-66864"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15369588",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-3442"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15369592",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-3441"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438186",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69649",
+    "cve": [
+     "CVE-2025-69649"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438191",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69644",
+    "cve": [
+     "CVE-2025-69644"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438204",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69646",
+    "cve": [
+     "CVE-2025-69646"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438205",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69652",
+    "cve": [
+     "CVE-2025-69652"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438215",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69651",
+    "cve": [
+     "CVE-2025-69651"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438216",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69645",
+    "cve": [
+     "CVE-2025-69645"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15438221",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Double Free",
+    "cve": [
+     "CVE-2025-69650"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15444861",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69648",
+    "cve": [
+     "CVE-2025-69648"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15444864",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "CVE-2025-69647",
+    "cve": [
+     "CVE-2025-69647"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-15788469",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-4647"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-16134291",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "NULL Pointer Dereference",
+    "cve": [
+     "CVE-2026-6845"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-16134296",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Resource Exhaustion",
+    "cve": [
+     "CVE-2026-6844"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-16134307",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Heap-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-6846"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-18353615",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-15003"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-18392465",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2026-18220"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-18867388",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Use After Free",
+    "cve": [
+     "CVE-2026-19548"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19222824",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2026-19582"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19786850",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2026-90804"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19786859",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2026-90801"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19786865",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2026-90803"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19786867",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-90802"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19823670",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-90829"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19823673",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-90830"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19823677",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2026-90831"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19823681",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-90828"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19865278",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-91779"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19865282",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-91782"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19865284",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-91781"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-19865289",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-91780"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-5675676",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Allocation of Resources Without Limits or Throttling",
+    "cve": [
+     "CVE-2017-13716"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-5675732",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2018-9996"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-5675770",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2018-20712"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-5675864",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2018-20673"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-5803139",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2021-32256"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707451",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-1150"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707454",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1147"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707456",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-1151"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707463",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-1149"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707465",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-1148"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707467",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1153"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8707469",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-1152"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8710243",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1176"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8710247",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1181"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8710249",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1178"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8710254",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1180"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-8719775",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-1182"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BINUTILS-9666595",
+    "paquete": "binutils",
+    "version": "2.44-3",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2025-3198"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-BZIP2-17099839",
+    "paquete": "bzip2",
+    "version": "1.0.8-6",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Write",
+    "cve": [
+     "CVE-2026-42250"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-COREUTILS-10259260",
+    "paquete": "coreutils",
+    "version": "9.7-3",
+    "severidad": "low",
+    "titulo": "Stack-based Buffer Overflow",
+    "cve": [
+     "CVE-2025-5278"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-COREUTILS-18299902",
+    "paquete": "coreutils",
+    "version": "9.7-3",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-56391"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-COREUTILS-18299912",
+    "paquete": "coreutils",
+    "version": "9.7-3",
+    "severidad": "low",
+    "titulo": "Heap-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-56392"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-COREUTILS-5673914",
+    "paquete": "coreutils",
+    "version": "9.7-3",
+    "severidad": "low",
+    "titulo": "Race Condition",
+    "cve": [
+     "CVE-2017-18018"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-13842046",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2025-10966",
+    "cve": [
+     "CVE-2025-10966"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-14894665",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2025-15079",
+    "cve": [
+     "CVE-2025-15079"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-14894680",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2025-14017",
+    "cve": [
+     "CVE-2025-14017"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-14894685",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2025-15224",
+    "cve": [
+     "CVE-2025-15224"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440212",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Improper Certificate Validation",
+    "cve": [
+     "CVE-2026-12064"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440217",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-8458",
+    "cve": [
+     "CVE-2026-8458"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440229",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-8932",
+    "cve": [
+     "CVE-2026-8932"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440237",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Use After Free",
+    "cve": [
+     "CVE-2026-10536"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440244",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Authentication Bypass",
+    "cve": [
+     "CVE-2026-11856"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440248",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Insufficiently Protected Credentials",
+    "cve": [
+     "CVE-2026-8926"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440258",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Insufficiently Protected Credentials",
+    "cve": [
+     "CVE-2026-9079"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440278",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Use After Free",
+    "cve": [
+     "CVE-2026-9080"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440280",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Improper Certificate Validation",
+    "cve": [
+     "CVE-2026-8286"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440286",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-9547",
+    "cve": [
+     "CVE-2026-9547"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440289",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-9545",
+    "cve": [
+     "CVE-2026-9545"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440292",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-8924",
+    "cve": [
+     "CVE-2026-8924"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-17440293",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "Authentication Bypass",
+    "cve": [
+     "CVE-2026-8927"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498492",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-18924",
+    "cve": [
+     "CVE-2026-18924"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498495",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-82209",
+    "cve": [
+     "CVE-2026-82209"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498507",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-13608",
+    "cve": [
+     "CVE-2026-13608"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498516",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-80255",
+    "cve": [
+     "CVE-2026-80255"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498519",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-80229",
+    "cve": [
+     "CVE-2026-80229"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498520",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-19931",
+    "cve": [
+     "CVE-2026-19931"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498521",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-80230",
+    "cve": [
+     "CVE-2026-80230"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-CURL-19498524",
+    "paquete": "curl",
+    "version": "8.14.1-2+deb13u5",
+    "severidad": "low",
+    "titulo": "CVE-2026-82208",
+    "cve": [
+     "CVE-2026-82208"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-DIFFUTILS-18235274",
+    "paquete": "diffutils",
+    "version": "1:3.10-4",
+    "severidad": "low",
+    "titulo": "Integer Overflow or Wraparound",
+    "cve": [
+     "CVE-2026-53910"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-EXPAT-14149137",
+    "paquete": "expat",
+    "version": "2.8.3-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Algorithmic Complexity",
+    "cve": [
+     "CVE-2025-66382"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-EXPAT-18968950",
+    "paquete": "expat",
+    "version": "2.8.3-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Algorithmic Complexity",
+    "cve": [
+     "CVE-2026-66046"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-EXPAT-19012842",
+    "paquete": "expat",
+    "version": "2.8.3-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Use After Free",
+    "cve": [
+     "CVE-2026-76957"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-EXPAT-19012850",
+    "paquete": "expat",
+    "version": "2.8.3-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Unexpected Status Code or Return Value",
+    "cve": [
+     "CVE-2026-76956"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-16325153",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-6238",
+    "cve": [
+     "CVE-2026-6238"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-16325161",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-5435",
+    "cve": [
+     "CVE-2026-5435"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-18605790",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-6791",
+    "cve": [
+     "CVE-2026-6791"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-18612523",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-6368",
+    "cve": [
+     "CVE-2026-6368"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19233584",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-19542",
+    "cve": [
+     "CVE-2026-19542"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19269961",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-19499",
+    "cve": [
+     "CVE-2026-19499"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19339206",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-77117",
+    "cve": [
+     "CVE-2026-77117"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19383357",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-18374",
+    "cve": [
+     "CVE-2026-18374"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19402190",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-80489",
+    "cve": [
+     "CVE-2026-80489"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19684421",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-89092",
+    "cve": [
+     "CVE-2026-89092"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-19885967",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-8674",
+    "cve": [
+     "CVE-2026-8674"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-20046937",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-86805",
+    "cve": [
+     "CVE-2026-86805"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-20046940",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2026-95818",
+    "cve": [
+     "CVE-2026-95818"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5680884",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2018-20796"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681058",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Resource Management Errors",
+    "cve": [
+     "CVE-2010-4756"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681145",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Use of Insufficiently Random Values",
+    "cve": [
+     "CVE-2019-1010025"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681177",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "CVE-2019-1010023",
+    "cve": [
+     "CVE-2019-1010023"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681215",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2019-9192"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681241",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2019-1010022"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GLIBC-5681256",
+    "paquete": "glibc",
+    "version": "2.41-12+deb13u4",
+    "severidad": "low",
+    "titulo": "Information Exposure",
+    "cve": [
+     "CVE-2019-1010024"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-GNUTLS28-5681083",
+    "paquete": "gnutls28",
+    "version": "3.8.9-3+deb13u4",
+    "severidad": "low",
+    "titulo": "Improper Input Validation",
+    "cve": [
+     "CVE-2011-3389"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-KRB5-17320737",
+    "paquete": "krb5",
+    "version": "1.21.3-5+deb13u1",
+    "severidad": "low",
+    "titulo": "Integer Underflow",
+    "cve": [
+     "CVE-2026-11850"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-KRB5-5683763",
+    "paquete": "krb5",
+    "version": "1.21.3-5+deb13u1",
+    "severidad": "low",
+    "titulo": "Integer Overflow or Wraparound",
+    "cve": [
+     "CVE-2018-5709"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-KRB5-6277416",
+    "paquete": "krb5",
+    "version": "1.21.3-5+deb13u1",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2024-26458"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-KRB5-6277425",
+    "paquete": "krb5",
+    "version": "1.21.3-5+deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2024-26461",
+    "cve": [
+     "CVE-2024-26461"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-17400953",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "low",
+    "titulo": "CVE-2026-6653",
+    "cve": [
+     "CVE-2026-6653"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-17683205",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "low",
+    "titulo": "Stack-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-11979"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-LIBXML2-19540218",
+    "paquete": "libxml2",
+    "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+    "severidad": "low",
+    "titulo": "Unchecked Return Value",
+    "cve": [
+     "CVE-2026-86141"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-M4-5688385",
+    "paquete": "m4",
+    "version": "1.4.19-8",
+    "severidad": "low",
+    "titulo": "CVE-2008-1687",
+    "cve": [
+     "CVE-2008-1687"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-M4-5688924",
+    "paquete": "m4",
+    "version": "1.4.19-8",
+    "severidad": "low",
+    "titulo": "CVE-2008-1688",
+    "cve": [
+     "CVE-2008-1688"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-NCURSES-10378958",
+    "paquete": "ncurses",
+    "version": "6.5+20250216-2",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2025-6141"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-NCURSES-15762838",
+    "paquete": "ncurses",
+    "version": "6.5+20250216-2",
+    "severidad": "low",
+    "titulo": "Stack-based Buffer Overflow",
+    "cve": [
+     "CVE-2025-69720"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-NGHTTP2-17662047",
+    "paquete": "nghttp2",
+    "version": "1.64.0-1.1+deb13u1",
+    "severidad": "low",
+    "titulo": "HTTP Request Smuggling",
+    "cve": [
+     "CVE-2026-58055"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-OPENLDAP-14907866",
+    "paquete": "openldap",
+    "version": "2.6.10+dfsg-1",
+    "severidad": "low",
+    "titulo": "Out-of-bounds Read",
+    "cve": [
+     "CVE-2026-22185"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-OPENLDAP-5691401",
+    "paquete": "openldap",
+    "version": "2.6.10+dfsg-1",
+    "severidad": "low",
+    "titulo": "Cryptographic Issues",
+    "cve": [
+     "CVE-2015-3276"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-OPENLDAP-5691428",
+    "paquete": "openldap",
+    "version": "2.6.10+dfsg-1",
+    "severidad": "low",
+    "titulo": "Improper Initialization",
+    "cve": [
+     "CVE-2017-14159"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-OPENLDAP-5691605",
+    "paquete": "openldap",
+    "version": "2.6.10+dfsg-1",
+    "severidad": "low",
+    "titulo": "Out-of-Bounds",
+    "cve": [
+     "CVE-2017-17740"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-OPENLDAP-5691628",
+    "paquete": "openldap",
+    "version": "2.6.10+dfsg-1",
+    "severidad": "low",
+    "titulo": "Improper Certificate Validation",
+    "cve": [
+     "CVE-2020-15719"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-P11KIT-17690398",
+    "paquete": "p11-kit",
+    "version": "0.25.5-3",
+    "severidad": "low",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2026-13757"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-P11KIT-18583095",
+    "paquete": "p11-kit",
+    "version": "0.25.5-3",
+    "severidad": "low",
+    "titulo": "Heap-based Buffer Overflow",
+    "cve": [
+     "CVE-2026-18938"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PAM-17339897",
+    "paquete": "pam",
+    "version": "1.7.0-5",
+    "severidad": "low",
+    "titulo": "CVE-2026-54411",
+    "cve": [
+     "CVE-2026-54411"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-17921866",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "NULL Pointer Dereference",
+    "cve": [
+     "CVE-2026-56288"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-17921867",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "Loop with Unreachable Exit Condition ('Infinite Loop')",
+    "cve": [
+     "CVE-2026-56289"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-5691645",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "Directory Traversal",
+    "cve": [
+     "CVE-2010-4651"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-5692026",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "Double Free",
+    "cve": [
+     "CVE-2018-6952"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-5692311",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "NULL Pointer Dereference",
+    "cve": [
+     "CVE-2018-6951"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PATCH-5692322",
+    "paquete": "patch",
+    "version": "2.8-2",
+    "severidad": "low",
+    "titulo": "Release of Invalid Pointer or Reference",
+    "cve": [
+     "CVE-2021-45261"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PERL-17037374",
+    "paquete": "perl",
+    "version": "5.40.1-6+deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-9538",
+    "cve": [
+     "CVE-2026-9538"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PERL-18600690",
+    "paquete": "perl",
+    "version": "5.40.1-6+deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-15534",
+    "cve": [
+     "CVE-2026-15534"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PERL-18779321",
+    "paquete": "perl",
+    "version": "5.40.1-6+deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-19487",
+    "cve": [
+     "CVE-2026-19487"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PERL-19957687",
+    "paquete": "perl",
+    "version": "5.40.1-6+deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-82560",
+    "cve": [
+     "CVE-2026-82560"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-PERL-5692251",
+    "paquete": "perl",
+    "version": "5.40.1-6+deb13u1",
+    "severidad": "low",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2011-4116"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-RE2C-15325701",
+    "paquete": "re2c",
+    "version": "4.1-1",
+    "severidad": "low",
+    "titulo": "Improper Resource Shutdown or Release",
+    "cve": [
+     "CVE-2026-2903"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-RE2C-5694513",
+    "paquete": "re2c",
+    "version": "4.1-1",
+    "severidad": "low",
+    "titulo": "Uncontrolled Recursion",
+    "cve": [
+     "CVE-2018-21232"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SHADOW-5695385",
+    "paquete": "shadow",
+    "version": "1:4.17.4-2",
+    "severidad": "low",
+    "titulo": "Access Restriction Bypass",
+    "cve": [
+     "CVE-2007-5686"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SHADOW-8551157",
+    "paquete": "shadow",
+    "version": "1:4.17.4-2",
+    "severidad": "low",
+    "titulo": "CVE-2024-56433",
+    "cve": [
+     "CVE-2024-56433"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SQLITE3-15682562",
+    "paquete": "sqlite3",
+    "version": "3.46.1-7+deb13u2",
+    "severidad": "low",
+    "titulo": "CVE-2025-70873",
+    "cve": [
+     "CVE-2025-70873"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SQLITE3-17975833",
+    "paquete": "sqlite3",
+    "version": "3.46.1-7+deb13u2",
+    "severidad": "low",
+    "titulo": "CVE-2026-50813",
+    "cve": [
+     "CVE-2026-50813"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SQLITE3-17975841",
+    "paquete": "sqlite3",
+    "version": "3.46.1-7+deb13u2",
+    "severidad": "low",
+    "titulo": "CVE-2026-50812",
+    "cve": [
+     "CVE-2026-50812"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SQLITE3-5696112",
+    "paquete": "sqlite3",
+    "version": "3.46.1-7+deb13u2",
+    "severidad": "low",
+    "titulo": "Memory Leak",
+    "cve": [
+     "CVE-2021-45346"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-16009572",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Incorrect Resource Transfer Between Spheres",
+    "cve": [
+     "CVE-2026-40228"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-18867639",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-16742",
+    "cve": [
+     "CVE-2026-16742"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-18913924",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "CVE-2026-15059",
+    "cve": [
+     "CVE-2026-15059"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-5696564",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2013-4392"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-5733389",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Improper Validation of Integrity Check Value",
+    "cve": [
+     "CVE-2023-31439"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-5733399",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Improper Validation of Integrity Check Value",
+    "cve": [
+     "CVE-2023-31438"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-SYSTEMD-5733401",
+    "paquete": "systemd",
+    "version": "257.13-1~deb13u1",
+    "severidad": "low",
+    "titulo": "Improper Validation of Integrity Check Value",
+    "cve": [
+     "CVE-2023-31437"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-TAR-15962848",
+    "paquete": "tar",
+    "version": "1.35+dfsg-3.1",
+    "severidad": "low",
+    "titulo": "Unrestricted Upload of File with Dangerous Type",
+    "cve": [
+     "CVE-2026-5704"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-TAR-18515585",
+    "paquete": "tar",
+    "version": "1.35+dfsg-3.1",
+    "severidad": "low",
+    "titulo": "Time-of-check Time-of-use (TOCTOU)",
+    "cve": [
+     "CVE-2026-18477"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-TAR-18515588",
+    "paquete": "tar",
+    "version": "1.35+dfsg-3.1",
+    "severidad": "low",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2026-18508"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-TAR-5696683",
+    "paquete": "tar",
+    "version": "1.35+dfsg-3.1",
+    "severidad": "low",
+    "titulo": "CVE-2005-2541",
+    "cve": [
+     "CVE-2005-2541"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-15358019",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Authentication Bypass",
+    "cve": [
+     "CVE-2026-3184"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-19513279",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Detection of Error Condition Without Action",
+    "cve": [
+     "CVE-2026-76642"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-19513282",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Missing Release of File Descriptor or Handle after Effective Lifetime",
+    "cve": [
+     "CVE-2026-78408"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-19513289",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Link Following",
+    "cve": [
+     "CVE-2026-78409"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-19513292",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Time-of-check Time-of-use (TOCTOU)",
+    "cve": [
+     "CVE-2026-78410"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-UTILLINUX-5698535",
+    "paquete": "util-linux",
+    "version": "2.41.5-0+deb13u1",
+    "severidad": "low",
+    "titulo": "Information Exposure",
+    "cve": [
+     "CVE-2022-0563"
+    ],
+    "corregido_en": []
+   },
+   {
+    "id": "SNYK-DEBIAN13-ZLIB-15307854",
+    "paquete": "zlib",
+    "version": "1:1.3.dfsg+really1.3.1-1+b1",
+    "severidad": "low",
+    "titulo": "Improper Validation of Specified Quantity in Input",
+    "cve": [
+     "CVE-2026-27171"
+    ],
+    "corregido_en": []
+   }
+  ]
+ },
+ "codigo": {
+  "analisis": "snyk code test",
+  "hallazgos": 13,
+  "por_nivel": {
+   "note": 11,
+   "warning": 2
+  },
+  "resultados": [
+   {
+    "regla": "javascript/NoHardcodedPasswords/test",
+    "nivel": "note",
+    "archivo": "resources/js/tests/login.test.js",
+    "linea": 3,
+    "mensaje": "Do not hardcode passwords in code. Found hardcoded password used in password."
+   },
+   {
+    "regla": "php/HardcodedPassword",
+    "nivel": "warning",
+    "archivo": "app/Models/User.php",
+    "linea": 48,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword",
+    "nivel": "warning",
+    "archivo": "resources/views/components/%E2%9A%A1chat-soporte.blade.php",
+    "linea": 12,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/RecuperacionContrasenaTest.php",
+    "linea": 59,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/RecuperacionContrasenaTest.php",
+    "linea": 60,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/RecuperacionContrasenaTest.php",
+    "linea": 74,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/RecuperacionContrasenaTest.php",
+    "linea": 75,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/ThrottlingAuthTest.php",
+    "linea": 22,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/ThrottlingAuthTest.php",
+    "linea": 45,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/ThrottlingAuthTest.php",
+    "linea": 109,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/ThrottlingAuthTest.php",
+    "linea": 110,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/VerificacionEmailPinTest.php",
+    "linea": 25,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   },
+   {
+    "regla": "php/HardcodedPassword/test",
+    "nivel": "note",
+    "archivo": "tests/Feature/VerificacionEmailPinTest.php",
+    "linea": 26,
+    "mensaje": "Do not hardcode passwords in code. Found a hardcoded password used in variable."
+   }
+  ]
+ }
+}
