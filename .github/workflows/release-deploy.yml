@@ -1,0 +1,165 @@
+# Pipeline de liberacion y despliegue continuo de BibliotecaOnline (Issue #156).
+# Guia: docs/cicd/pipeline-liberacion-despliegue.md
+#
+# Cambios -> CI (lint, PHPUnit, E2E) -> imagen de liberacion -> despliegue en contenedores
+#         -> pruebas sobre lo desplegado (humo, E2E, k6) -> publicacion (solo en tags v*)
+
+name: Liberación y despliegue — BibliotecaOnline
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+
+  build-release:
+    name: Construir liberación
+    needs: ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Calcular version
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            VERSION="$GITHUB_REF_NAME"
+          else
+            VERSION="$(git describe --tags --always)-run${GITHUB_RUN_NUMBER}"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Version de la liberacion: $VERSION"
+
+      - name: Construir imagen (scripts/prepare-release.sh)
+        run: EXPORT=true scripts/prepare-release.sh "${{ steps.version.outputs.version }}"
+
+      - name: Guardar imagen como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: imagen-${{ steps.version.outputs.version }}
+          path: dist/bibliotecaonline-${{ steps.version.outputs.version }}.tar.gz
+          retention-days: 7
+
+  deploy-verify:
+    name: Desplegar y verificar
+    needs: build-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: release-local
+    env:
+      VERSION: ${{ needs.build-release.outputs.version }}
+      RELEASE_PORT: "8090"
+
+    steps:
+      - name: Checkout codigo
+        uses: actions/checkout@v4
+
+      - name: Descargar imagen de la liberacion
+        uses: actions/download-artifact@v4
+        with:
+          name: imagen-${{ env.VERSION }}
+          path: dist
+
+      - name: Cargar imagen en Docker
+        run: gunzip -c "dist/bibliotecaonline-${VERSION}.tar.gz" | docker load
+
+      - name: Preparar entorno de despliegue (scripts/prepare-release.sh)
+        run: SKIP_BUILD=true scripts/prepare-release.sh "$VERSION"
+
+      - name: Desplegar (scripts/deploy.sh)
+        run: scripts/deploy.sh "$VERSION"
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependencias de pruebas
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
+      - name: Instalar k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Verificar liberacion (scripts/test-release.sh)
+        run: RUN_E2E=true RUN_K6=true scripts/test-release.sh
+
+      - name: Resumen de la liberacion
+        if: ${{ !cancelled() }}
+        run: |
+          cat dist/test-release/reporte.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+          { echo; echo "### Historial de despliegue"; echo '```'; cat .release/history 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Logs del entorno si algo fallo
+        if: failure()
+        run: |
+          docker compose --env-file .env.release -f docker-compose.release.yml ps
+          docker compose --env-file .env.release -f docker-compose.release.yml logs --tail 150
+        env:
+          RELEASE_VERSION: ${{ env.VERSION }}
+
+      - name: Publicar reportes de verificacion
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: verificacion-${{ env.VERSION }}
+          path: |
+            dist/test-release/
+            playwright-report/
+          retention-days: 14
+
+      - name: Apagar entorno
+        if: always()
+        run: docker compose --env-file .env.release -f docker-compose.release.yml down -v || true
+        env:
+          RELEASE_VERSION: ${{ env.VERSION }}
+
+  publish:
+    name: Publicar liberación
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [build-release, deploy-verify]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ needs.build-release.outputs.version }}
+
+    steps:
+      - name: Descargar imagen y reporte
+        uses: actions/download-artifact@v4
+        with:
+          path: artefactos
+
+      - name: Crear GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$VERSION" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "BibliotecaOnline $VERSION" \
+            --notes-file "artefactos/verificacion-${VERSION}/dist/test-release/reporte.md" \
+            "artefactos/imagen-${VERSION}/bibliotecaonline-${VERSION}.tar.gz"
