@@ -5,6 +5,8 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  # Permite que release-deploy.yml ejecute este CI como primera etapa del pipeline (Issue #156)
+  workflow_call:
 
 jobs:
   lint-format:

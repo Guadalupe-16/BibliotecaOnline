@@ -11,9 +11,11 @@ Etiquetas usadas: **IMPLEMENTADO** (existe hoy), **VALIDADO** (existe y se compr
 
 ## 1. Estado actual
 
-**No existe hosting ni despliegue.** El repositorio no contiene workflows de deploy, archivos de
-infraestructura de hosting (configuración de proveedor, Terraform aplicado) ni ambientes de GitHub. La
-aplicación solo se ejecuta en las máquinas de los integrantes.
+**No existe hosting público.** Desde el issue #156 sí existe un **pipeline de liberación y
+despliegue continuo en contenedores** (GitHub Actions + Docker Compose), documentado en
+[`docs/cicd/pipeline-liberacion-despliegue.md`](../cicd/pipeline-liberacion-despliegue.md): cada
+liberación se despliega y se verifica en un entorno efímero (runner de GitHub o máquina local), no en
+un servidor permanente.
 
 | Aspecto | Situación real | Estado |
 |---|---|---|
@@ -25,11 +27,13 @@ aplicación solo se ejecuta en las máquinas de los integrantes.
 | Respaldos | `scripts/backup.sh` y `scripts/restore.sh` (mysqldump sobre la BD del `.env`) | **IMPLEMENTADO** |
 | Health check | Ruta `/up` registrada en `bootstrap/app.php` (`health: '/up'`) | **IMPLEMENTADO** |
 | Versiones | Tags `v1.0.0` (en `main`) y `v2.0.0` (solo en `develop`) | **IMPLEMENTADO** |
-| Hosting / Staging / Producción | No existen | — |
+| Pipeline de liberación y despliegue | `release-deploy.yml` + `scripts/prepare-release.sh`, `deploy.sh`, `test-release.sh`, `rollback.sh` (issue #156) | **IMPLEMENTADO** |
+| Entorno de despliegue en contenedores | `Dockerfile` + `docker-compose.release.yml` (app, worker, MySQL 8.4), efímero | **VALIDADO** (local) |
+| Hosting / Staging / Producción permanentes | No existen | — |
 | Devcontainer | `.devcontainer/` con PHP 8.2 + Node 20 + SQLite + Chromium (issue #138); no probado aún en Codespaces | **IMPLEMENTADO** (no validado) |
 | Infraestructura como código | Solo diseño: [`propuesta-terraform.md`](propuesta-terraform.md) | **PLANEADO** |
 
-Todo lo que sigue a partir de la sección 2 es **PLANEADO**.
+Todo lo que sigue a partir de la sección 2 es **PLANEADO** para un servidor permanente; la versión en contenedores está en el documento del #156.
 
 ---
 
