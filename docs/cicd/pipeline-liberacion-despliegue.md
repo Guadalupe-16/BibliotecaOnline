@@ -250,11 +250,29 @@ Máquina: macOS 26.6.1, Apple M4, 16 GB · Colima 0.10.3 (2 CPU, 4 GB) · Docker
 | Worker de colas | 9 027 activity logs procesados, 0 en `failed_jobs` |
 | `deploy.sh local-3` + `rollback.sh` | Regresó a `local-2` en 18 s; `.release/history` registró los 3 despliegues |
 
-### Ejecución en GitHub Actions
+### Ejecución en GitHub Actions — VALIDADO (2026-09-28)
 
-Se registra en el PR de este issue (run de *Liberación y despliegue — BibliotecaOnline*): jobs
-`CI`, `Construir liberación` y `Desplegar y verificar`, con el reporte en el resumen del run y en el
-artefacto `verificacion-<version>`. El job `Publicar liberación` solo corre con tags `v*`.
+Run [36373939156](https://github.com/Guadalupe-16/BibliotecaOnline/actions/runs/36373939156) del
+PR #163 (commit `f8e3294`), versión de la liberación `v2.0.0-91-g7105c19-run1`:
+
+| Job | Resultado | Duración |
+|---|---|---|
+| CI / ESLint + Prettier | ✅ | 17 s |
+| CI / PHPUnit Tests | ✅ | 20 s |
+| CI / E2E Playwright | ✅ | 1 min 1 s |
+| Construir liberación | ✅ | 1 min 40 s |
+| Desplegar y verificar (humo + E2E + k6) | ✅ | 3 min 16 s |
+| Publicar liberación | Omitido (correcto: solo corre con tags `v*`) | — |
+
+- Artefactos del run: `imagen-v2.0.0-91-g7105c19-run1` (la liberación), `verificacion-...` (reporte
+  de humo, E2E y k6) y `playwright-report`.
+- El environment `release-local` registró el despliegue del commit `f8e3294` en la pestaña
+  *Deployments* del repositorio.
+- El detalle de tiempos, p95 de k6 y resultados de humo está en el resumen del run (*Summary*).
+- En el mismo commit, el job `PHPUnit Tests` del workflow independiente `CI — BibliotecaOnline`
+  (run 36373938962) falló una vez con código de salida 2, mientras el mismo job dentro de este
+  pipeline pasó. Al re-ejecutarlo pasó sin cambios de código, y la suite pasó 8 de 8 veces en local:
+  se registra como fallo transitorio del runner, no de las pruebas.
 
 ## 13. Limitaciones
 
